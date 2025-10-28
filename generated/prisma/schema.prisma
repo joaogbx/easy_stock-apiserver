@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  name          String
+  email         String
+  password_hash String
+  role          String
+  created_at    DateTime @default(now())
+
+  companye_id Int?
+  companye    Company? @relation(fields: [companye_id], references: [id])
+
+  companyOwned Company? @relation("OwnerOfCompany")
+
+  movements StockMovement[]
+
+  @@map("users")
+}
+
+model Company {
+  id        Int    @id @default(autoincrement())
+  name      String
+  image_url String
+
+  owner_id Int?  @unique
+  owner    User? @relation("OwnerOfCompany", fields: [owner_id], references: [id])
+
+  users     User[]
+  products  Product[]
+  movements StockMovement[]
+
+  @@map("companyes")
+}
+
+model Product {
+  id           Int    @id @default(autoincrement())
+  name         String
+  measure_unit String
+  quantity     Int
+
+  companye_id Int
+  companye    Company @relation(fields: [companye_id], references: [id])
+
+  movements StockMovement[]
+
+  @@map("products")
+}
+
+model StockMovement {
+  id         Int      @id @default(autoincrement())
+  type       String
+  created_at DateTime @default(now())
+  quantity   Int
+
+  companye_id Int
+  companye    Company @relation(fields: [companye_id], references: [id])
+
+  product_id Int
+  product    Product @relation(fields: [product_id], references: [id])
+
+  user_id Int
+  user    User @relation(fields: [user_id], references: [id])
+
+  @@map("stock_movements")
+}
