@@ -3,9 +3,11 @@ import {
   NestInterceptor,
   ExecutionContext,
   CallHandler,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class ResponseInterceptor implements NestInterceptor {
@@ -22,6 +24,25 @@ export class ResponseInterceptor implements NestInterceptor {
         timestamp: new Date().toISOString(),
         data: data || {},
       })),
+      catchError((error) => {
+        const status =
+          error instanceof HttpException
+            ? error.getStatus()
+            : HttpStatus.INTERNAL_SERVER_ERROR;
+
+        const message =
+          error instanceof HttpException
+            ? error.getResponse()
+            : 'Erro interno do servidor';
+
+        // 🔁 mantém o mesmo formato de resposta
+        return throwError(() => ({
+          success: false,
+          statusCode: status,
+          timestamp: new Date().toISOString(),
+          error: message,
+        }));
+      }),
     );
   }
 }
