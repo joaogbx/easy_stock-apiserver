@@ -7,6 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import type jwtConfigType from './config/jwt.config';
 import jwtConfig from './config/jwt.config';
 import type { ConfigType } from '@nestjs/config';
+import { CreateUserDto } from 'src/user/dto/create_user.dto';
 
 @Injectable()
 export class AuthService {
@@ -62,6 +63,52 @@ export class AuthService {
       email: user.email,
       created_at: user.created_at,
       role: user.role,
+      token: token,
+    };
+  }
+
+  async register(createUserDto: CreateUserDto) {
+    const user = await this.prisma.user.findFirst({
+      where: {
+        email: createUserDto.email,
+      },
+    });
+
+    if (user?.id)
+      throw new HttpException('Usuário já existe', HttpStatus.BAD_REQUEST);
+
+    const passwordHash = await this.hash.hash(createUserDto.password);
+
+    const newUser = await this.prisma.user.create({
+      data: {
+        email: createUserDto.email,
+        name: createUserDto.name,
+        role: createUserDto.role,
+        password_hash: passwordHash,
+      },
+      select: USER_SELECT_FIELDS,
+    });
+
+    const token = await this.jwtService.signAsync(
+      {
+        sub: newUser.id,
+        email: newUser.email,
+        role: newUser.role,
+      },
+      {
+        audience: this.jwtConfiguration.audience,
+        secret: this.jwtConfiguration.secret,
+        issuer: this.jwtConfiguration.issuer,
+        expiresIn: '30d',
+      },
+    );
+
+    return {
+      id: newUser.id,
+      name: newUser.name,
+      email: newUser.email,
+      created_at: newUser.created_at,
+      role: newUser.role,
       token: token,
     };
   }

@@ -8,8 +8,8 @@ export class CreateCompanyDto {
   @IsNotEmpty({ message: 'O nome da empresa é obrigatório.' })
   name: string;
 
-  @IsNotEmpty({ message: 'ID do usuário obrigatório.' })
-  owner_id: number;
+  //@IsNotEmpty({ message: 'ID do usuário obrigatório.' })
+  //owner_id: number;
 
   //@ApiProperty({
   //  description: 'URL de uma imagem ou logo para a empresa.',
