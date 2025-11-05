@@ -127,13 +127,12 @@ exports.Prisma.UserScalarFieldEnum = {
   password_hash: 'password_hash',
   role: 'role',
   created_at: 'created_at',
-  companye_id: 'companye_id'
+  company_id: 'company_id'
 };
 
 exports.Prisma.CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  image_url: 'image_url',
   owner_id: 'owner_id'
 };
 
@@ -142,7 +141,7 @@ exports.Prisma.ProductScalarFieldEnum = {
   name: 'name',
   measure_unit: 'measure_unit',
   quantity: 'quantity',
-  companye_id: 'companye_id'
+  company_id: 'company_id'
 };
 
 exports.Prisma.StockMovementScalarFieldEnum = {
@@ -150,7 +149,7 @@ exports.Prisma.StockMovementScalarFieldEnum = {
   type: 'type',
   created_at: 'created_at',
   quantity: 'quantity',
-  companye_id: 'companye_id',
+  company_id: 'company_id',
   product_id: 'product_id',
   user_id: 'user_id'
 };

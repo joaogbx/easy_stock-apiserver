@@ -99,13 +99,12 @@ exports.Prisma.UserScalarFieldEnum = {
   password_hash: 'password_hash',
   role: 'role',
   created_at: 'created_at',
-  companye_id: 'companye_id'
+  company_id: 'company_id'
 };
 
 exports.Prisma.CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  image_url: 'image_url',
   owner_id: 'owner_id'
 };
 
@@ -114,7 +113,7 @@ exports.Prisma.ProductScalarFieldEnum = {
   name: 'name',
   measure_unit: 'measure_unit',
   quantity: 'quantity',
-  companye_id: 'companye_id'
+  company_id: 'company_id'
 };
 
 exports.Prisma.StockMovementScalarFieldEnum = {
@@ -122,7 +121,7 @@ exports.Prisma.StockMovementScalarFieldEnum = {
   type: 'type',
   created_at: 'created_at',
   quantity: 'quantity',
-  companye_id: 'companye_id',
+  company_id: 'company_id',
   product_id: 'product_id',
   user_id: 'user_id'
 };
@@ -160,7 +159,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\development\\node\\easy_stock\\generated\\prisma",
+      "value": "C:\\development\\easystock-project\\easy_stock\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -174,11 +173,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\development\\node\\easy_stock\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\development\\easystock-project\\easy_stock\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -188,7 +187,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -197,13 +195,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id            Int      @id @default(autoincrement())\n  name          String\n  email         String\n  password_hash String\n  role          String\n  created_at    DateTime @default(now())\n\n  companye_id Int?\n  companye    Company? @relation(fields: [companye_id], references: [id])\n\n  companyOwned Company? @relation(\"OwnerOfCompany\")\n\n  movements StockMovement[]\n\n  @@map(\"users\")\n}\n\nmodel Company {\n  id        Int    @id @default(autoincrement())\n  name      String\n  image_url String\n\n  owner_id Int?  @unique\n  owner    User? @relation(\"OwnerOfCompany\", fields: [owner_id], references: [id])\n\n  users     User[]\n  products  Product[]\n  movements StockMovement[]\n\n  @@map(\"companyes\")\n}\n\nmodel Product {\n  id           Int    @id @default(autoincrement())\n  name         String\n  measure_unit String\n  quantity     Int\n\n  companye_id Int\n  companye    Company @relation(fields: [companye_id], references: [id])\n\n  movements StockMovement[]\n\n  @@map(\"products\")\n}\n\nmodel StockMovement {\n  id         Int      @id @default(autoincrement())\n  type       String\n  created_at DateTime @default(now())\n  quantity   Int\n\n  companye_id Int\n  companye    Company @relation(fields: [companye_id], references: [id])\n\n  product_id Int\n  product    Product @relation(fields: [product_id], references: [id])\n\n  user_id Int\n  user    User @relation(fields: [user_id], references: [id])\n\n  @@map(\"stock_movements\")\n}\n",
-  "inlineSchemaHash": "fc2eed5241edf27d0c367b07a36266179e48969da94fc771c26b6d209fb8f728",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id            Int      @id @default(autoincrement())\n  name          String\n  email         String\n  password_hash String\n  role          String\n  created_at    DateTime @default(now())\n\n  company_id Int?\n  company    Company? @relation(fields: [company_id], references: [id])\n\n  companyOwned Company? @relation(\"OwnerOfCompany\")\n\n  movements StockMovement[]\n\n  @@map(\"users\")\n}\n\nmodel Company {\n  id       Int    @id @default(autoincrement())\n  name     String\n  owner_id Int?   @unique\n  owner    User?  @relation(\"OwnerOfCompany\", fields: [owner_id], references: [id])\n\n  users     User[]\n  products  Product[]\n  movements StockMovement[]\n\n  @@map(\"companys\")\n}\n\nmodel Product {\n  id           Int    @id @default(autoincrement())\n  name         String\n  measure_unit String\n  quantity     Int\n\n  company_id Int\n  company    Company @relation(fields: [company_id], references: [id])\n\n  movements StockMovement[]\n\n  @@map(\"products\")\n}\n\nmodel StockMovement {\n  id         Int      @id @default(autoincrement())\n  type       String\n  created_at DateTime @default(now())\n  quantity   Int\n\n  company_id Int\n  company    Company @relation(fields: [company_id], references: [id])\n\n  product_id Int\n  product    Product @relation(fields: [product_id], references: [id])\n\n  user_id Int\n  user    User @relation(fields: [user_id], references: [id])\n\n  @@map(\"stock_movements\")\n}\n",
+  "inlineSchemaHash": "def658292abd9aabbe022c258515077489dccb2438045a89f0cf4a119bdbf3c9",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password_hash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"companye_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"companye\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"CompanyToUser\"},{\"name\":\"companyOwned\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"OwnerOfCompany\"},{\"name\":\"movements\",\"kind\":\"object\",\"type\":\"StockMovement\",\"relationName\":\"StockMovementToUser\"}],\"dbName\":\"users\"},\"Company\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image_url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"owner_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"owner\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"OwnerOfCompany\"},{\"name\":\"users\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"CompanyToUser\"},{\"name\":\"products\",\"kind\":\"object\",\"type\":\"Product\",\"relationName\":\"CompanyToProduct\"},{\"name\":\"movements\",\"kind\":\"object\",\"type\":\"StockMovement\",\"relationName\":\"CompanyToStockMovement\"}],\"dbName\":\"companyes\"},\"Product\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"measure_unit\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"companye_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"companye\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"CompanyToProduct\"},{\"name\":\"movements\",\"kind\":\"object\",\"type\":\"StockMovement\",\"relationName\":\"ProductToStockMovement\"}],\"dbName\":\"products\"},\"StockMovement\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"companye_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"companye\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"CompanyToStockMovement\"},{\"name\":\"product_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"product\",\"kind\":\"object\",\"type\":\"Product\",\"relationName\":\"ProductToStockMovement\"},{\"name\":\"user_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"StockMovementToUser\"}],\"dbName\":\"stock_movements\"}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password_hash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"role\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"company_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"company\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"CompanyToUser\"},{\"name\":\"companyOwned\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"OwnerOfCompany\"},{\"name\":\"movements\",\"kind\":\"object\",\"type\":\"StockMovement\",\"relationName\":\"StockMovementToUser\"}],\"dbName\":\"users\"},\"Company\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"owner_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"owner\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"OwnerOfCompany\"},{\"name\":\"users\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"CompanyToUser\"},{\"name\":\"products\",\"kind\":\"object\",\"type\":\"Product\",\"relationName\":\"CompanyToProduct\"},{\"name\":\"movements\",\"kind\":\"object\",\"type\":\"StockMovement\",\"relationName\":\"CompanyToStockMovement\"}],\"dbName\":\"companys\"},\"Product\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"measure_unit\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"company_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"company\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"CompanyToProduct\"},{\"name\":\"movements\",\"kind\":\"object\",\"type\":\"StockMovement\",\"relationName\":\"ProductToStockMovement\"}],\"dbName\":\"products\"},\"StockMovement\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"company_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"company\",\"kind\":\"object\",\"type\":\"Company\",\"relationName\":\"CompanyToStockMovement\"},{\"name\":\"product_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"product\",\"kind\":\"object\",\"type\":\"Product\",\"relationName\":\"ProductToStockMovement\"},{\"name\":\"user_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"StockMovementToUser\"}],\"dbName\":\"stock_movements\"}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

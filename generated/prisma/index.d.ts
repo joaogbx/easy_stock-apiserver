@@ -1258,12 +1258,12 @@ export namespace Prisma {
 
   export type UserAvgAggregateOutputType = {
     id: number | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type UserSumAggregateOutputType = {
     id: number | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -1273,7 +1273,7 @@ export namespace Prisma {
     password_hash: string | null
     role: string | null
     created_at: Date | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -1283,7 +1283,7 @@ export namespace Prisma {
     password_hash: string | null
     role: string | null
     created_at: Date | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -1293,19 +1293,19 @@ export namespace Prisma {
     password_hash: number
     role: number
     created_at: number
-    companye_id: number
+    company_id: number
     _all: number
   }
 
 
   export type UserAvgAggregateInputType = {
     id?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type UserSumAggregateInputType = {
     id?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type UserMinAggregateInputType = {
@@ -1315,7 +1315,7 @@ export namespace Prisma {
     password_hash?: true
     role?: true
     created_at?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -1325,7 +1325,7 @@ export namespace Prisma {
     password_hash?: true
     role?: true
     created_at?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -1335,7 +1335,7 @@ export namespace Prisma {
     password_hash?: true
     role?: true
     created_at?: true
-    companye_id?: true
+    company_id?: true
     _all?: true
   }
 
@@ -1432,7 +1432,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at: Date
-    companye_id: number | null
+    company_id: number | null
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1461,8 +1461,8 @@ export namespace Prisma {
     password_hash?: boolean
     role?: boolean
     created_at?: boolean
-    companye_id?: boolean
-    companye?: boolean | User$companyeArgs<ExtArgs>
+    company_id?: boolean
+    company?: boolean | User$companyArgs<ExtArgs>
     companyOwned?: boolean | User$companyOwnedArgs<ExtArgs>
     movements?: boolean | User$movementsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1475,8 +1475,8 @@ export namespace Prisma {
     password_hash?: boolean
     role?: boolean
     created_at?: boolean
-    companye_id?: boolean
-    companye?: boolean | User$companyeArgs<ExtArgs>
+    company_id?: boolean
+    company?: boolean | User$companyArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1486,8 +1486,8 @@ export namespace Prisma {
     password_hash?: boolean
     role?: boolean
     created_at?: boolean
-    companye_id?: boolean
-    companye?: boolean | User$companyeArgs<ExtArgs>
+    company_id?: boolean
+    company?: boolean | User$companyArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1497,27 +1497,27 @@ export namespace Prisma {
     password_hash?: boolean
     role?: boolean
     created_at?: boolean
-    companye_id?: boolean
+    company_id?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password_hash" | "role" | "created_at" | "companye_id", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password_hash" | "role" | "created_at" | "company_id", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | User$companyeArgs<ExtArgs>
+    company?: boolean | User$companyArgs<ExtArgs>
     companyOwned?: boolean | User$companyOwnedArgs<ExtArgs>
     movements?: boolean | User$movementsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | User$companyeArgs<ExtArgs>
+    company?: boolean | User$companyArgs<ExtArgs>
   }
   export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | User$companyeArgs<ExtArgs>
+    company?: boolean | User$companyArgs<ExtArgs>
   }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      companye: Prisma.$CompanyPayload<ExtArgs> | null
+      company: Prisma.$CompanyPayload<ExtArgs> | null
       companyOwned: Prisma.$CompanyPayload<ExtArgs> | null
       movements: Prisma.$StockMovementPayload<ExtArgs>[]
     }
@@ -1528,7 +1528,7 @@ export namespace Prisma {
       password_hash: string
       role: string
       created_at: Date
-      companye_id: number | null
+      company_id: number | null
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1923,7 +1923,7 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    companye<T extends User$companyeArgs<ExtArgs> = {}>(args?: Subset<T, User$companyeArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    company<T extends User$companyArgs<ExtArgs> = {}>(args?: Subset<T, User$companyArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     companyOwned<T extends User$companyOwnedArgs<ExtArgs> = {}>(args?: Subset<T, User$companyOwnedArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     movements<T extends User$movementsArgs<ExtArgs> = {}>(args?: Subset<T, User$movementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StockMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -1961,7 +1961,7 @@ export namespace Prisma {
     readonly password_hash: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'String'>
     readonly created_at: FieldRef<"User", 'DateTime'>
-    readonly companye_id: FieldRef<"User", 'Int'>
+    readonly company_id: FieldRef<"User", 'Int'>
   }
     
 
@@ -2358,9 +2358,9 @@ export namespace Prisma {
   }
 
   /**
-   * User.companye
+   * User.company
    */
-  export type User$companyeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$companyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Company
      */
@@ -2463,21 +2463,18 @@ export namespace Prisma {
   export type CompanyMinAggregateOutputType = {
     id: number | null
     name: string | null
-    image_url: string | null
     owner_id: number | null
   }
 
   export type CompanyMaxAggregateOutputType = {
     id: number | null
     name: string | null
-    image_url: string | null
     owner_id: number | null
   }
 
   export type CompanyCountAggregateOutputType = {
     id: number
     name: number
-    image_url: number
     owner_id: number
     _all: number
   }
@@ -2496,21 +2493,18 @@ export namespace Prisma {
   export type CompanyMinAggregateInputType = {
     id?: true
     name?: true
-    image_url?: true
     owner_id?: true
   }
 
   export type CompanyMaxAggregateInputType = {
     id?: true
     name?: true
-    image_url?: true
     owner_id?: true
   }
 
   export type CompanyCountAggregateInputType = {
     id?: true
     name?: true
-    image_url?: true
     owner_id?: true
     _all?: true
   }
@@ -2604,7 +2598,6 @@ export namespace Prisma {
   export type CompanyGroupByOutputType = {
     id: number
     name: string
-    image_url: string
     owner_id: number | null
     _count: CompanyCountAggregateOutputType | null
     _avg: CompanyAvgAggregateOutputType | null
@@ -2630,7 +2623,6 @@ export namespace Prisma {
   export type CompanySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    image_url?: boolean
     owner_id?: boolean
     owner?: boolean | Company$ownerArgs<ExtArgs>
     users?: boolean | Company$usersArgs<ExtArgs>
@@ -2642,7 +2634,6 @@ export namespace Prisma {
   export type CompanySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    image_url?: boolean
     owner_id?: boolean
     owner?: boolean | Company$ownerArgs<ExtArgs>
   }, ExtArgs["result"]["company"]>
@@ -2650,7 +2641,6 @@ export namespace Prisma {
   export type CompanySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    image_url?: boolean
     owner_id?: boolean
     owner?: boolean | Company$ownerArgs<ExtArgs>
   }, ExtArgs["result"]["company"]>
@@ -2658,11 +2648,10 @@ export namespace Prisma {
   export type CompanySelectScalar = {
     id?: boolean
     name?: boolean
-    image_url?: boolean
     owner_id?: boolean
   }
 
-  export type CompanyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "image_url" | "owner_id", ExtArgs["result"]["company"]>
+  export type CompanyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "owner_id", ExtArgs["result"]["company"]>
   export type CompanyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     owner?: boolean | Company$ownerArgs<ExtArgs>
     users?: boolean | Company$usersArgs<ExtArgs>
@@ -2688,7 +2677,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
-      image_url: string
       owner_id: number | null
     }, ExtArgs["result"]["company"]>
     composites: {}
@@ -3119,7 +3107,6 @@ export namespace Prisma {
   interface CompanyFieldRefs {
     readonly id: FieldRef<"Company", 'Int'>
     readonly name: FieldRef<"Company", 'String'>
-    readonly image_url: FieldRef<"Company", 'String'>
     readonly owner_id: FieldRef<"Company", 'Int'>
   }
     
@@ -3641,13 +3628,13 @@ export namespace Prisma {
   export type ProductAvgAggregateOutputType = {
     id: number | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type ProductSumAggregateOutputType = {
     id: number | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type ProductMinAggregateOutputType = {
@@ -3655,7 +3642,7 @@ export namespace Prisma {
     name: string | null
     measure_unit: string | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type ProductMaxAggregateOutputType = {
@@ -3663,7 +3650,7 @@ export namespace Prisma {
     name: string | null
     measure_unit: string | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
   }
 
   export type ProductCountAggregateOutputType = {
@@ -3671,7 +3658,7 @@ export namespace Prisma {
     name: number
     measure_unit: number
     quantity: number
-    companye_id: number
+    company_id: number
     _all: number
   }
 
@@ -3679,13 +3666,13 @@ export namespace Prisma {
   export type ProductAvgAggregateInputType = {
     id?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type ProductSumAggregateInputType = {
     id?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type ProductMinAggregateInputType = {
@@ -3693,7 +3680,7 @@ export namespace Prisma {
     name?: true
     measure_unit?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type ProductMaxAggregateInputType = {
@@ -3701,7 +3688,7 @@ export namespace Prisma {
     name?: true
     measure_unit?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
   }
 
   export type ProductCountAggregateInputType = {
@@ -3709,7 +3696,7 @@ export namespace Prisma {
     name?: true
     measure_unit?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
     _all?: true
   }
 
@@ -3804,7 +3791,7 @@ export namespace Prisma {
     name: string
     measure_unit: string
     quantity: number
-    companye_id: number
+    company_id: number
     _count: ProductCountAggregateOutputType | null
     _avg: ProductAvgAggregateOutputType | null
     _sum: ProductSumAggregateOutputType | null
@@ -3831,8 +3818,8 @@ export namespace Prisma {
     name?: boolean
     measure_unit?: boolean
     quantity?: boolean
-    companye_id?: boolean
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company_id?: boolean
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     movements?: boolean | Product$movementsArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
@@ -3842,8 +3829,8 @@ export namespace Prisma {
     name?: boolean
     measure_unit?: boolean
     quantity?: boolean
-    companye_id?: boolean
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company_id?: boolean
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3851,8 +3838,8 @@ export namespace Prisma {
     name?: boolean
     measure_unit?: boolean
     quantity?: boolean
-    companye_id?: boolean
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company_id?: boolean
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectScalar = {
@@ -3860,26 +3847,26 @@ export namespace Prisma {
     name?: boolean
     measure_unit?: boolean
     quantity?: boolean
-    companye_id?: boolean
+    company_id?: boolean
   }
 
-  export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "measure_unit" | "quantity" | "companye_id", ExtArgs["result"]["product"]>
+  export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "measure_unit" | "quantity" | "company_id", ExtArgs["result"]["product"]>
   export type ProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     movements?: boolean | Product$movementsArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProductIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
   }
   export type ProductIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
   }
 
   export type $ProductPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Product"
     objects: {
-      companye: Prisma.$CompanyPayload<ExtArgs>
+      company: Prisma.$CompanyPayload<ExtArgs>
       movements: Prisma.$StockMovementPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -3887,7 +3874,7 @@ export namespace Prisma {
       name: string
       measure_unit: string
       quantity: number
-      companye_id: number
+      company_id: number
     }, ExtArgs["result"]["product"]>
     composites: {}
   }
@@ -4282,7 +4269,7 @@ export namespace Prisma {
    */
   export interface Prisma__ProductClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    companye<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    company<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     movements<T extends Product$movementsArgs<ExtArgs> = {}>(args?: Subset<T, Product$movementsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StockMovementPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4317,7 +4304,7 @@ export namespace Prisma {
     readonly name: FieldRef<"Product", 'String'>
     readonly measure_unit: FieldRef<"Product", 'String'>
     readonly quantity: FieldRef<"Product", 'Int'>
-    readonly companye_id: FieldRef<"Product", 'Int'>
+    readonly company_id: FieldRef<"Product", 'Int'>
   }
     
 
@@ -4771,7 +4758,7 @@ export namespace Prisma {
   export type StockMovementAvgAggregateOutputType = {
     id: number | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
     product_id: number | null
     user_id: number | null
   }
@@ -4779,7 +4766,7 @@ export namespace Prisma {
   export type StockMovementSumAggregateOutputType = {
     id: number | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
     product_id: number | null
     user_id: number | null
   }
@@ -4789,7 +4776,7 @@ export namespace Prisma {
     type: string | null
     created_at: Date | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
     product_id: number | null
     user_id: number | null
   }
@@ -4799,7 +4786,7 @@ export namespace Prisma {
     type: string | null
     created_at: Date | null
     quantity: number | null
-    companye_id: number | null
+    company_id: number | null
     product_id: number | null
     user_id: number | null
   }
@@ -4809,7 +4796,7 @@ export namespace Prisma {
     type: number
     created_at: number
     quantity: number
-    companye_id: number
+    company_id: number
     product_id: number
     user_id: number
     _all: number
@@ -4819,7 +4806,7 @@ export namespace Prisma {
   export type StockMovementAvgAggregateInputType = {
     id?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
     product_id?: true
     user_id?: true
   }
@@ -4827,7 +4814,7 @@ export namespace Prisma {
   export type StockMovementSumAggregateInputType = {
     id?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
     product_id?: true
     user_id?: true
   }
@@ -4837,7 +4824,7 @@ export namespace Prisma {
     type?: true
     created_at?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
     product_id?: true
     user_id?: true
   }
@@ -4847,7 +4834,7 @@ export namespace Prisma {
     type?: true
     created_at?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
     product_id?: true
     user_id?: true
   }
@@ -4857,7 +4844,7 @@ export namespace Prisma {
     type?: true
     created_at?: true
     quantity?: true
-    companye_id?: true
+    company_id?: true
     product_id?: true
     user_id?: true
     _all?: true
@@ -4954,7 +4941,7 @@ export namespace Prisma {
     type: string
     created_at: Date
     quantity: number
-    companye_id: number
+    company_id: number
     product_id: number
     user_id: number
     _count: StockMovementCountAggregateOutputType | null
@@ -4983,10 +4970,10 @@ export namespace Prisma {
     type?: boolean
     created_at?: boolean
     quantity?: boolean
-    companye_id?: boolean
+    company_id?: boolean
     product_id?: boolean
     user_id?: boolean
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stockMovement"]>
@@ -4996,10 +4983,10 @@ export namespace Prisma {
     type?: boolean
     created_at?: boolean
     quantity?: boolean
-    companye_id?: boolean
+    company_id?: boolean
     product_id?: boolean
     user_id?: boolean
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stockMovement"]>
@@ -5009,10 +4996,10 @@ export namespace Prisma {
     type?: boolean
     created_at?: boolean
     quantity?: boolean
-    companye_id?: boolean
+    company_id?: boolean
     product_id?: boolean
     user_id?: boolean
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["stockMovement"]>
@@ -5022,24 +5009,24 @@ export namespace Prisma {
     type?: boolean
     created_at?: boolean
     quantity?: boolean
-    companye_id?: boolean
+    company_id?: boolean
     product_id?: boolean
     user_id?: boolean
   }
 
-  export type StockMovementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "created_at" | "quantity" | "companye_id" | "product_id" | "user_id", ExtArgs["result"]["stockMovement"]>
+  export type StockMovementOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "created_at" | "quantity" | "company_id" | "product_id" | "user_id", ExtArgs["result"]["stockMovement"]>
   export type StockMovementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type StockMovementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type StockMovementIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    companye?: boolean | CompanyDefaultArgs<ExtArgs>
+    company?: boolean | CompanyDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -5047,7 +5034,7 @@ export namespace Prisma {
   export type $StockMovementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "StockMovement"
     objects: {
-      companye: Prisma.$CompanyPayload<ExtArgs>
+      company: Prisma.$CompanyPayload<ExtArgs>
       product: Prisma.$ProductPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
     }
@@ -5056,7 +5043,7 @@ export namespace Prisma {
       type: string
       created_at: Date
       quantity: number
-      companye_id: number
+      company_id: number
       product_id: number
       user_id: number
     }, ExtArgs["result"]["stockMovement"]>
@@ -5453,7 +5440,7 @@ export namespace Prisma {
    */
   export interface Prisma__StockMovementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    companye<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    company<T extends CompanyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CompanyDefaultArgs<ExtArgs>>): Prisma__CompanyClient<$Result.GetResult<Prisma.$CompanyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     product<T extends ProductDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProductDefaultArgs<ExtArgs>>): Prisma__ProductClient<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -5489,7 +5476,7 @@ export namespace Prisma {
     readonly type: FieldRef<"StockMovement", 'String'>
     readonly created_at: FieldRef<"StockMovement", 'DateTime'>
     readonly quantity: FieldRef<"StockMovement", 'Int'>
-    readonly companye_id: FieldRef<"StockMovement", 'Int'>
+    readonly company_id: FieldRef<"StockMovement", 'Int'>
     readonly product_id: FieldRef<"StockMovement", 'Int'>
     readonly user_id: FieldRef<"StockMovement", 'Int'>
   }
@@ -5927,7 +5914,7 @@ export namespace Prisma {
     password_hash: 'password_hash',
     role: 'role',
     created_at: 'created_at',
-    companye_id: 'companye_id'
+    company_id: 'company_id'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -5936,7 +5923,6 @@ export namespace Prisma {
   export const CompanyScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    image_url: 'image_url',
     owner_id: 'owner_id'
   };
 
@@ -5948,7 +5934,7 @@ export namespace Prisma {
     name: 'name',
     measure_unit: 'measure_unit',
     quantity: 'quantity',
-    companye_id: 'companye_id'
+    company_id: 'company_id'
   };
 
   export type ProductScalarFieldEnum = (typeof ProductScalarFieldEnum)[keyof typeof ProductScalarFieldEnum]
@@ -5959,7 +5945,7 @@ export namespace Prisma {
     type: 'type',
     created_at: 'created_at',
     quantity: 'quantity',
-    companye_id: 'companye_id',
+    company_id: 'company_id',
     product_id: 'product_id',
     user_id: 'user_id'
   };
@@ -6065,8 +6051,8 @@ export namespace Prisma {
     password_hash?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     created_at?: DateTimeFilter<"User"> | Date | string
-    companye_id?: IntNullableFilter<"User"> | number | null
-    companye?: XOR<CompanyNullableScalarRelationFilter, CompanyWhereInput> | null
+    company_id?: IntNullableFilter<"User"> | number | null
+    company?: XOR<CompanyNullableScalarRelationFilter, CompanyWhereInput> | null
     companyOwned?: XOR<CompanyNullableScalarRelationFilter, CompanyWhereInput> | null
     movements?: StockMovementListRelationFilter
   }
@@ -6078,8 +6064,8 @@ export namespace Prisma {
     password_hash?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
-    companye_id?: SortOrderInput | SortOrder
-    companye?: CompanyOrderByWithRelationInput
+    company_id?: SortOrderInput | SortOrder
+    company?: CompanyOrderByWithRelationInput
     companyOwned?: CompanyOrderByWithRelationInput
     movements?: StockMovementOrderByRelationAggregateInput
   }
@@ -6094,8 +6080,8 @@ export namespace Prisma {
     password_hash?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     created_at?: DateTimeFilter<"User"> | Date | string
-    companye_id?: IntNullableFilter<"User"> | number | null
-    companye?: XOR<CompanyNullableScalarRelationFilter, CompanyWhereInput> | null
+    company_id?: IntNullableFilter<"User"> | number | null
+    company?: XOR<CompanyNullableScalarRelationFilter, CompanyWhereInput> | null
     companyOwned?: XOR<CompanyNullableScalarRelationFilter, CompanyWhereInput> | null
     movements?: StockMovementListRelationFilter
   }, "id">
@@ -6107,7 +6093,7 @@ export namespace Prisma {
     password_hash?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
-    companye_id?: SortOrderInput | SortOrder
+    company_id?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -6125,7 +6111,7 @@ export namespace Prisma {
     password_hash?: StringWithAggregatesFilter<"User"> | string
     role?: StringWithAggregatesFilter<"User"> | string
     created_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    companye_id?: IntNullableWithAggregatesFilter<"User"> | number | null
+    company_id?: IntNullableWithAggregatesFilter<"User"> | number | null
   }
 
   export type CompanyWhereInput = {
@@ -6134,7 +6120,6 @@ export namespace Prisma {
     NOT?: CompanyWhereInput | CompanyWhereInput[]
     id?: IntFilter<"Company"> | number
     name?: StringFilter<"Company"> | string
-    image_url?: StringFilter<"Company"> | string
     owner_id?: IntNullableFilter<"Company"> | number | null
     owner?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     users?: UserListRelationFilter
@@ -6145,7 +6130,6 @@ export namespace Prisma {
   export type CompanyOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    image_url?: SortOrder
     owner_id?: SortOrderInput | SortOrder
     owner?: UserOrderByWithRelationInput
     users?: UserOrderByRelationAggregateInput
@@ -6160,7 +6144,6 @@ export namespace Prisma {
     OR?: CompanyWhereInput[]
     NOT?: CompanyWhereInput | CompanyWhereInput[]
     name?: StringFilter<"Company"> | string
-    image_url?: StringFilter<"Company"> | string
     owner?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     users?: UserListRelationFilter
     products?: ProductListRelationFilter
@@ -6170,7 +6153,6 @@ export namespace Prisma {
   export type CompanyOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    image_url?: SortOrder
     owner_id?: SortOrderInput | SortOrder
     _count?: CompanyCountOrderByAggregateInput
     _avg?: CompanyAvgOrderByAggregateInput
@@ -6185,7 +6167,6 @@ export namespace Prisma {
     NOT?: CompanyScalarWhereWithAggregatesInput | CompanyScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Company"> | number
     name?: StringWithAggregatesFilter<"Company"> | string
-    image_url?: StringWithAggregatesFilter<"Company"> | string
     owner_id?: IntNullableWithAggregatesFilter<"Company"> | number | null
   }
 
@@ -6197,8 +6178,8 @@ export namespace Prisma {
     name?: StringFilter<"Product"> | string
     measure_unit?: StringFilter<"Product"> | string
     quantity?: IntFilter<"Product"> | number
-    companye_id?: IntFilter<"Product"> | number
-    companye?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
+    company_id?: IntFilter<"Product"> | number
+    company?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
     movements?: StockMovementListRelationFilter
   }
 
@@ -6207,8 +6188,8 @@ export namespace Prisma {
     name?: SortOrder
     measure_unit?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
-    companye?: CompanyOrderByWithRelationInput
+    company_id?: SortOrder
+    company?: CompanyOrderByWithRelationInput
     movements?: StockMovementOrderByRelationAggregateInput
   }
 
@@ -6220,8 +6201,8 @@ export namespace Prisma {
     name?: StringFilter<"Product"> | string
     measure_unit?: StringFilter<"Product"> | string
     quantity?: IntFilter<"Product"> | number
-    companye_id?: IntFilter<"Product"> | number
-    companye?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
+    company_id?: IntFilter<"Product"> | number
+    company?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
     movements?: StockMovementListRelationFilter
   }, "id">
 
@@ -6230,7 +6211,7 @@ export namespace Prisma {
     name?: SortOrder
     measure_unit?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     _count?: ProductCountOrderByAggregateInput
     _avg?: ProductAvgOrderByAggregateInput
     _max?: ProductMaxOrderByAggregateInput
@@ -6246,7 +6227,7 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Product"> | string
     measure_unit?: StringWithAggregatesFilter<"Product"> | string
     quantity?: IntWithAggregatesFilter<"Product"> | number
-    companye_id?: IntWithAggregatesFilter<"Product"> | number
+    company_id?: IntWithAggregatesFilter<"Product"> | number
   }
 
   export type StockMovementWhereInput = {
@@ -6257,10 +6238,10 @@ export namespace Prisma {
     type?: StringFilter<"StockMovement"> | string
     created_at?: DateTimeFilter<"StockMovement"> | Date | string
     quantity?: IntFilter<"StockMovement"> | number
-    companye_id?: IntFilter<"StockMovement"> | number
+    company_id?: IntFilter<"StockMovement"> | number
     product_id?: IntFilter<"StockMovement"> | number
     user_id?: IntFilter<"StockMovement"> | number
-    companye?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
+    company?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
     product?: XOR<ProductScalarRelationFilter, ProductWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
@@ -6270,10 +6251,10 @@ export namespace Prisma {
     type?: SortOrder
     created_at?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
-    companye?: CompanyOrderByWithRelationInput
+    company?: CompanyOrderByWithRelationInput
     product?: ProductOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
   }
@@ -6286,10 +6267,10 @@ export namespace Prisma {
     type?: StringFilter<"StockMovement"> | string
     created_at?: DateTimeFilter<"StockMovement"> | Date | string
     quantity?: IntFilter<"StockMovement"> | number
-    companye_id?: IntFilter<"StockMovement"> | number
+    company_id?: IntFilter<"StockMovement"> | number
     product_id?: IntFilter<"StockMovement"> | number
     user_id?: IntFilter<"StockMovement"> | number
-    companye?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
+    company?: XOR<CompanyScalarRelationFilter, CompanyWhereInput>
     product?: XOR<ProductScalarRelationFilter, ProductWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
@@ -6299,7 +6280,7 @@ export namespace Prisma {
     type?: SortOrder
     created_at?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
     _count?: StockMovementCountOrderByAggregateInput
@@ -6317,7 +6298,7 @@ export namespace Prisma {
     type?: StringWithAggregatesFilter<"StockMovement"> | string
     created_at?: DateTimeWithAggregatesFilter<"StockMovement"> | Date | string
     quantity?: IntWithAggregatesFilter<"StockMovement"> | number
-    companye_id?: IntWithAggregatesFilter<"StockMovement"> | number
+    company_id?: IntWithAggregatesFilter<"StockMovement"> | number
     product_id?: IntWithAggregatesFilter<"StockMovement"> | number
     user_id?: IntWithAggregatesFilter<"StockMovement"> | number
   }
@@ -6328,7 +6309,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye?: CompanyCreateNestedOneWithoutUsersInput
+    company?: CompanyCreateNestedOneWithoutUsersInput
     companyOwned?: CompanyCreateNestedOneWithoutOwnerInput
     movements?: StockMovementCreateNestedManyWithoutUserInput
   }
@@ -6340,7 +6321,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye_id?: number | null
+    company_id?: number | null
     companyOwned?: CompanyUncheckedCreateNestedOneWithoutOwnerInput
     movements?: StockMovementUncheckedCreateNestedManyWithoutUserInput
   }
@@ -6351,7 +6332,7 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye?: CompanyUpdateOneWithoutUsersNestedInput
+    company?: CompanyUpdateOneWithoutUsersNestedInput
     companyOwned?: CompanyUpdateOneWithoutOwnerNestedInput
     movements?: StockMovementUpdateManyWithoutUserNestedInput
   }
@@ -6363,7 +6344,7 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye_id?: NullableIntFieldUpdateOperationsInput | number | null
+    company_id?: NullableIntFieldUpdateOperationsInput | number | null
     companyOwned?: CompanyUncheckedUpdateOneWithoutOwnerNestedInput
     movements?: StockMovementUncheckedUpdateManyWithoutUserNestedInput
   }
@@ -6375,7 +6356,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye_id?: number | null
+    company_id?: number | null
   }
 
   export type UserUpdateManyMutationInput = {
@@ -6393,63 +6374,56 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye_id?: NullableIntFieldUpdateOperationsInput | number | null
+    company_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type CompanyCreateInput = {
     name: string
-    image_url: string
     owner?: UserCreateNestedOneWithoutCompanyOwnedInput
-    users?: UserCreateNestedManyWithoutCompanyeInput
-    products?: ProductCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementCreateNestedManyWithoutCompanyeInput
+    users?: UserCreateNestedManyWithoutCompanyInput
+    products?: ProductCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateInput = {
     id?: number
     name: string
-    image_url: string
     owner_id?: number | null
-    users?: UserUncheckedCreateNestedManyWithoutCompanyeInput
-    products?: ProductUncheckedCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyeInput
+    users?: UserUncheckedCreateNestedManyWithoutCompanyInput
+    products?: ProductUncheckedCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner?: UserUpdateOneWithoutCompanyOwnedNestedInput
-    users?: UserUpdateManyWithoutCompanyeNestedInput
-    products?: ProductUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUpdateManyWithoutCompanyeNestedInput
+    users?: UserUpdateManyWithoutCompanyNestedInput
+    products?: ProductUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner_id?: NullableIntFieldUpdateOperationsInput | number | null
-    users?: UserUncheckedUpdateManyWithoutCompanyeNestedInput
-    products?: ProductUncheckedUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUncheckedUpdateManyWithoutCompanyeNestedInput
+    users?: UserUncheckedUpdateManyWithoutCompanyNestedInput
+    products?: ProductUncheckedUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyCreateManyInput = {
     id?: number
     name: string
-    image_url: string
     owner_id?: number | null
   }
 
   export type CompanyUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
   }
 
   export type CompanyUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner_id?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
@@ -6457,7 +6431,7 @@ export namespace Prisma {
     name: string
     measure_unit: string
     quantity: number
-    companye: CompanyCreateNestedOneWithoutProductsInput
+    company: CompanyCreateNestedOneWithoutProductsInput
     movements?: StockMovementCreateNestedManyWithoutProductInput
   }
 
@@ -6466,7 +6440,7 @@ export namespace Prisma {
     name: string
     measure_unit: string
     quantity: number
-    companye_id: number
+    company_id: number
     movements?: StockMovementUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -6474,7 +6448,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye?: CompanyUpdateOneRequiredWithoutProductsNestedInput
+    company?: CompanyUpdateOneRequiredWithoutProductsNestedInput
     movements?: StockMovementUpdateManyWithoutProductNestedInput
   }
 
@@ -6483,7 +6457,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     movements?: StockMovementUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -6492,7 +6466,7 @@ export namespace Prisma {
     name: string
     measure_unit: string
     quantity: number
-    companye_id: number
+    company_id: number
   }
 
   export type ProductUpdateManyMutationInput = {
@@ -6506,14 +6480,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type StockMovementCreateInput = {
     type: string
     created_at?: Date | string
     quantity: number
-    companye: CompanyCreateNestedOneWithoutMovementsInput
+    company: CompanyCreateNestedOneWithoutMovementsInput
     product: ProductCreateNestedOneWithoutMovementsInput
     user: UserCreateNestedOneWithoutMovementsInput
   }
@@ -6523,7 +6497,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye_id: number
+    company_id: number
     product_id: number
     user_id: number
   }
@@ -6532,7 +6506,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye?: CompanyUpdateOneRequiredWithoutMovementsNestedInput
+    company?: CompanyUpdateOneRequiredWithoutMovementsNestedInput
     product?: ProductUpdateOneRequiredWithoutMovementsNestedInput
     user?: UserUpdateOneRequiredWithoutMovementsNestedInput
   }
@@ -6542,7 +6516,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     product_id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
@@ -6552,7 +6526,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye_id: number
+    company_id: number
     product_id: number
     user_id: number
   }
@@ -6568,7 +6542,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     product_id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
@@ -6648,12 +6622,12 @@ export namespace Prisma {
     password_hash?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
     id?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -6663,7 +6637,7 @@ export namespace Prisma {
     password_hash?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -6673,12 +6647,12 @@ export namespace Prisma {
     password_hash?: SortOrder
     role?: SortOrder
     created_at?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
     id?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -6773,7 +6747,6 @@ export namespace Prisma {
   export type CompanyCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    image_url?: SortOrder
     owner_id?: SortOrder
   }
 
@@ -6785,14 +6758,12 @@ export namespace Prisma {
   export type CompanyMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    image_url?: SortOrder
     owner_id?: SortOrder
   }
 
   export type CompanyMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    image_url?: SortOrder
     owner_id?: SortOrder
   }
 
@@ -6811,13 +6782,13 @@ export namespace Prisma {
     name?: SortOrder
     measure_unit?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type ProductAvgOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type ProductMaxOrderByAggregateInput = {
@@ -6825,7 +6796,7 @@ export namespace Prisma {
     name?: SortOrder
     measure_unit?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type ProductMinOrderByAggregateInput = {
@@ -6833,13 +6804,13 @@ export namespace Prisma {
     name?: SortOrder
     measure_unit?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type ProductSumOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
   }
 
   export type ProductScalarRelationFilter = {
@@ -6857,7 +6828,7 @@ export namespace Prisma {
     type?: SortOrder
     created_at?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
   }
@@ -6865,7 +6836,7 @@ export namespace Prisma {
   export type StockMovementAvgOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
   }
@@ -6875,7 +6846,7 @@ export namespace Prisma {
     type?: SortOrder
     created_at?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
   }
@@ -6885,7 +6856,7 @@ export namespace Prisma {
     type?: SortOrder
     created_at?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
   }
@@ -6893,7 +6864,7 @@ export namespace Prisma {
   export type StockMovementSumOrderByAggregateInput = {
     id?: SortOrder
     quantity?: SortOrder
-    companye_id?: SortOrder
+    company_id?: SortOrder
     product_id?: SortOrder
     user_id?: SortOrder
   }
@@ -7018,45 +6989,45 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type UserCreateNestedManyWithoutCompanyeInput = {
-    create?: XOR<UserCreateWithoutCompanyeInput, UserUncheckedCreateWithoutCompanyeInput> | UserCreateWithoutCompanyeInput[] | UserUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutCompanyeInput | UserCreateOrConnectWithoutCompanyeInput[]
-    createMany?: UserCreateManyCompanyeInputEnvelope
+  export type UserCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput> | UserCreateWithoutCompanyInput[] | UserUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCompanyInput | UserCreateOrConnectWithoutCompanyInput[]
+    createMany?: UserCreateManyCompanyInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
-  export type ProductCreateNestedManyWithoutCompanyeInput = {
-    create?: XOR<ProductCreateWithoutCompanyeInput, ProductUncheckedCreateWithoutCompanyeInput> | ProductCreateWithoutCompanyeInput[] | ProductUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutCompanyeInput | ProductCreateOrConnectWithoutCompanyeInput[]
-    createMany?: ProductCreateManyCompanyeInputEnvelope
+  export type ProductCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<ProductCreateWithoutCompanyInput, ProductUncheckedCreateWithoutCompanyInput> | ProductCreateWithoutCompanyInput[] | ProductUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: ProductCreateOrConnectWithoutCompanyInput | ProductCreateOrConnectWithoutCompanyInput[]
+    createMany?: ProductCreateManyCompanyInputEnvelope
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
   }
 
-  export type StockMovementCreateNestedManyWithoutCompanyeInput = {
-    create?: XOR<StockMovementCreateWithoutCompanyeInput, StockMovementUncheckedCreateWithoutCompanyeInput> | StockMovementCreateWithoutCompanyeInput[] | StockMovementUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyeInput | StockMovementCreateOrConnectWithoutCompanyeInput[]
-    createMany?: StockMovementCreateManyCompanyeInputEnvelope
+  export type StockMovementCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<StockMovementCreateWithoutCompanyInput, StockMovementUncheckedCreateWithoutCompanyInput> | StockMovementCreateWithoutCompanyInput[] | StockMovementUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyInput | StockMovementCreateOrConnectWithoutCompanyInput[]
+    createMany?: StockMovementCreateManyCompanyInputEnvelope
     connect?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutCompanyeInput = {
-    create?: XOR<UserCreateWithoutCompanyeInput, UserUncheckedCreateWithoutCompanyeInput> | UserCreateWithoutCompanyeInput[] | UserUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutCompanyeInput | UserCreateOrConnectWithoutCompanyeInput[]
-    createMany?: UserCreateManyCompanyeInputEnvelope
+  export type UserUncheckedCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput> | UserCreateWithoutCompanyInput[] | UserUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCompanyInput | UserCreateOrConnectWithoutCompanyInput[]
+    createMany?: UserCreateManyCompanyInputEnvelope
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
-  export type ProductUncheckedCreateNestedManyWithoutCompanyeInput = {
-    create?: XOR<ProductCreateWithoutCompanyeInput, ProductUncheckedCreateWithoutCompanyeInput> | ProductCreateWithoutCompanyeInput[] | ProductUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutCompanyeInput | ProductCreateOrConnectWithoutCompanyeInput[]
-    createMany?: ProductCreateManyCompanyeInputEnvelope
+  export type ProductUncheckedCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<ProductCreateWithoutCompanyInput, ProductUncheckedCreateWithoutCompanyInput> | ProductCreateWithoutCompanyInput[] | ProductUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: ProductCreateOrConnectWithoutCompanyInput | ProductCreateOrConnectWithoutCompanyInput[]
+    createMany?: ProductCreateManyCompanyInputEnvelope
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
   }
 
-  export type StockMovementUncheckedCreateNestedManyWithoutCompanyeInput = {
-    create?: XOR<StockMovementCreateWithoutCompanyeInput, StockMovementUncheckedCreateWithoutCompanyeInput> | StockMovementCreateWithoutCompanyeInput[] | StockMovementUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyeInput | StockMovementCreateOrConnectWithoutCompanyeInput[]
-    createMany?: StockMovementCreateManyCompanyeInputEnvelope
+  export type StockMovementUncheckedCreateNestedManyWithoutCompanyInput = {
+    create?: XOR<StockMovementCreateWithoutCompanyInput, StockMovementUncheckedCreateWithoutCompanyInput> | StockMovementCreateWithoutCompanyInput[] | StockMovementUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyInput | StockMovementCreateOrConnectWithoutCompanyInput[]
+    createMany?: StockMovementCreateManyCompanyInputEnvelope
     connect?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
   }
 
@@ -7070,87 +7041,87 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCompanyOwnedInput, UserUpdateWithoutCompanyOwnedInput>, UserUncheckedUpdateWithoutCompanyOwnedInput>
   }
 
-  export type UserUpdateManyWithoutCompanyeNestedInput = {
-    create?: XOR<UserCreateWithoutCompanyeInput, UserUncheckedCreateWithoutCompanyeInput> | UserCreateWithoutCompanyeInput[] | UserUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutCompanyeInput | UserCreateOrConnectWithoutCompanyeInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutCompanyeInput | UserUpsertWithWhereUniqueWithoutCompanyeInput[]
-    createMany?: UserCreateManyCompanyeInputEnvelope
+  export type UserUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput> | UserCreateWithoutCompanyInput[] | UserUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCompanyInput | UserCreateOrConnectWithoutCompanyInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutCompanyInput | UserUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: UserCreateManyCompanyInputEnvelope
     set?: UserWhereUniqueInput | UserWhereUniqueInput[]
     disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
     delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutCompanyeInput | UserUpdateWithWhereUniqueWithoutCompanyeInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutCompanyeInput | UserUpdateManyWithWhereWithoutCompanyeInput[]
+    update?: UserUpdateWithWhereUniqueWithoutCompanyInput | UserUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutCompanyInput | UserUpdateManyWithWhereWithoutCompanyInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type ProductUpdateManyWithoutCompanyeNestedInput = {
-    create?: XOR<ProductCreateWithoutCompanyeInput, ProductUncheckedCreateWithoutCompanyeInput> | ProductCreateWithoutCompanyeInput[] | ProductUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutCompanyeInput | ProductCreateOrConnectWithoutCompanyeInput[]
-    upsert?: ProductUpsertWithWhereUniqueWithoutCompanyeInput | ProductUpsertWithWhereUniqueWithoutCompanyeInput[]
-    createMany?: ProductCreateManyCompanyeInputEnvelope
+  export type ProductUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<ProductCreateWithoutCompanyInput, ProductUncheckedCreateWithoutCompanyInput> | ProductCreateWithoutCompanyInput[] | ProductUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: ProductCreateOrConnectWithoutCompanyInput | ProductCreateOrConnectWithoutCompanyInput[]
+    upsert?: ProductUpsertWithWhereUniqueWithoutCompanyInput | ProductUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: ProductCreateManyCompanyInputEnvelope
     set?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     disconnect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     delete?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
-    update?: ProductUpdateWithWhereUniqueWithoutCompanyeInput | ProductUpdateWithWhereUniqueWithoutCompanyeInput[]
-    updateMany?: ProductUpdateManyWithWhereWithoutCompanyeInput | ProductUpdateManyWithWhereWithoutCompanyeInput[]
+    update?: ProductUpdateWithWhereUniqueWithoutCompanyInput | ProductUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: ProductUpdateManyWithWhereWithoutCompanyInput | ProductUpdateManyWithWhereWithoutCompanyInput[]
     deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
   }
 
-  export type StockMovementUpdateManyWithoutCompanyeNestedInput = {
-    create?: XOR<StockMovementCreateWithoutCompanyeInput, StockMovementUncheckedCreateWithoutCompanyeInput> | StockMovementCreateWithoutCompanyeInput[] | StockMovementUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyeInput | StockMovementCreateOrConnectWithoutCompanyeInput[]
-    upsert?: StockMovementUpsertWithWhereUniqueWithoutCompanyeInput | StockMovementUpsertWithWhereUniqueWithoutCompanyeInput[]
-    createMany?: StockMovementCreateManyCompanyeInputEnvelope
+  export type StockMovementUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<StockMovementCreateWithoutCompanyInput, StockMovementUncheckedCreateWithoutCompanyInput> | StockMovementCreateWithoutCompanyInput[] | StockMovementUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyInput | StockMovementCreateOrConnectWithoutCompanyInput[]
+    upsert?: StockMovementUpsertWithWhereUniqueWithoutCompanyInput | StockMovementUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: StockMovementCreateManyCompanyInputEnvelope
     set?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
     disconnect?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
     delete?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
     connect?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
-    update?: StockMovementUpdateWithWhereUniqueWithoutCompanyeInput | StockMovementUpdateWithWhereUniqueWithoutCompanyeInput[]
-    updateMany?: StockMovementUpdateManyWithWhereWithoutCompanyeInput | StockMovementUpdateManyWithWhereWithoutCompanyeInput[]
+    update?: StockMovementUpdateWithWhereUniqueWithoutCompanyInput | StockMovementUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: StockMovementUpdateManyWithWhereWithoutCompanyInput | StockMovementUpdateManyWithWhereWithoutCompanyInput[]
     deleteMany?: StockMovementScalarWhereInput | StockMovementScalarWhereInput[]
   }
 
-  export type UserUncheckedUpdateManyWithoutCompanyeNestedInput = {
-    create?: XOR<UserCreateWithoutCompanyeInput, UserUncheckedCreateWithoutCompanyeInput> | UserCreateWithoutCompanyeInput[] | UserUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutCompanyeInput | UserCreateOrConnectWithoutCompanyeInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutCompanyeInput | UserUpsertWithWhereUniqueWithoutCompanyeInput[]
-    createMany?: UserCreateManyCompanyeInputEnvelope
+  export type UserUncheckedUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput> | UserCreateWithoutCompanyInput[] | UserUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutCompanyInput | UserCreateOrConnectWithoutCompanyInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutCompanyInput | UserUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: UserCreateManyCompanyInputEnvelope
     set?: UserWhereUniqueInput | UserWhereUniqueInput[]
     disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
     delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutCompanyeInput | UserUpdateWithWhereUniqueWithoutCompanyeInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutCompanyeInput | UserUpdateManyWithWhereWithoutCompanyeInput[]
+    update?: UserUpdateWithWhereUniqueWithoutCompanyInput | UserUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutCompanyInput | UserUpdateManyWithWhereWithoutCompanyInput[]
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type ProductUncheckedUpdateManyWithoutCompanyeNestedInput = {
-    create?: XOR<ProductCreateWithoutCompanyeInput, ProductUncheckedCreateWithoutCompanyeInput> | ProductCreateWithoutCompanyeInput[] | ProductUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutCompanyeInput | ProductCreateOrConnectWithoutCompanyeInput[]
-    upsert?: ProductUpsertWithWhereUniqueWithoutCompanyeInput | ProductUpsertWithWhereUniqueWithoutCompanyeInput[]
-    createMany?: ProductCreateManyCompanyeInputEnvelope
+  export type ProductUncheckedUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<ProductCreateWithoutCompanyInput, ProductUncheckedCreateWithoutCompanyInput> | ProductCreateWithoutCompanyInput[] | ProductUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: ProductCreateOrConnectWithoutCompanyInput | ProductCreateOrConnectWithoutCompanyInput[]
+    upsert?: ProductUpsertWithWhereUniqueWithoutCompanyInput | ProductUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: ProductCreateManyCompanyInputEnvelope
     set?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     disconnect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     delete?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
-    update?: ProductUpdateWithWhereUniqueWithoutCompanyeInput | ProductUpdateWithWhereUniqueWithoutCompanyeInput[]
-    updateMany?: ProductUpdateManyWithWhereWithoutCompanyeInput | ProductUpdateManyWithWhereWithoutCompanyeInput[]
+    update?: ProductUpdateWithWhereUniqueWithoutCompanyInput | ProductUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: ProductUpdateManyWithWhereWithoutCompanyInput | ProductUpdateManyWithWhereWithoutCompanyInput[]
     deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
   }
 
-  export type StockMovementUncheckedUpdateManyWithoutCompanyeNestedInput = {
-    create?: XOR<StockMovementCreateWithoutCompanyeInput, StockMovementUncheckedCreateWithoutCompanyeInput> | StockMovementCreateWithoutCompanyeInput[] | StockMovementUncheckedCreateWithoutCompanyeInput[]
-    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyeInput | StockMovementCreateOrConnectWithoutCompanyeInput[]
-    upsert?: StockMovementUpsertWithWhereUniqueWithoutCompanyeInput | StockMovementUpsertWithWhereUniqueWithoutCompanyeInput[]
-    createMany?: StockMovementCreateManyCompanyeInputEnvelope
+  export type StockMovementUncheckedUpdateManyWithoutCompanyNestedInput = {
+    create?: XOR<StockMovementCreateWithoutCompanyInput, StockMovementUncheckedCreateWithoutCompanyInput> | StockMovementCreateWithoutCompanyInput[] | StockMovementUncheckedCreateWithoutCompanyInput[]
+    connectOrCreate?: StockMovementCreateOrConnectWithoutCompanyInput | StockMovementCreateOrConnectWithoutCompanyInput[]
+    upsert?: StockMovementUpsertWithWhereUniqueWithoutCompanyInput | StockMovementUpsertWithWhereUniqueWithoutCompanyInput[]
+    createMany?: StockMovementCreateManyCompanyInputEnvelope
     set?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
     disconnect?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
     delete?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
     connect?: StockMovementWhereUniqueInput | StockMovementWhereUniqueInput[]
-    update?: StockMovementUpdateWithWhereUniqueWithoutCompanyeInput | StockMovementUpdateWithWhereUniqueWithoutCompanyeInput[]
-    updateMany?: StockMovementUpdateManyWithWhereWithoutCompanyeInput | StockMovementUpdateManyWithWhereWithoutCompanyeInput[]
+    update?: StockMovementUpdateWithWhereUniqueWithoutCompanyInput | StockMovementUpdateWithWhereUniqueWithoutCompanyInput[]
+    updateMany?: StockMovementUpdateManyWithWhereWithoutCompanyInput | StockMovementUpdateManyWithWhereWithoutCompanyInput[]
     deleteMany?: StockMovementScalarWhereInput | StockMovementScalarWhereInput[]
   }
 
@@ -7386,19 +7357,17 @@ export namespace Prisma {
 
   export type CompanyCreateWithoutUsersInput = {
     name: string
-    image_url: string
     owner?: UserCreateNestedOneWithoutCompanyOwnedInput
-    products?: ProductCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementCreateNestedManyWithoutCompanyeInput
+    products?: ProductCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateWithoutUsersInput = {
     id?: number
     name: string
-    image_url: string
     owner_id?: number | null
-    products?: ProductUncheckedCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyeInput
+    products?: ProductUncheckedCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyCreateOrConnectWithoutUsersInput = {
@@ -7408,19 +7377,17 @@ export namespace Prisma {
 
   export type CompanyCreateWithoutOwnerInput = {
     name: string
-    image_url: string
-    users?: UserCreateNestedManyWithoutCompanyeInput
-    products?: ProductCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementCreateNestedManyWithoutCompanyeInput
+    users?: UserCreateNestedManyWithoutCompanyInput
+    products?: ProductCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateWithoutOwnerInput = {
     id?: number
     name: string
-    image_url: string
-    users?: UserUncheckedCreateNestedManyWithoutCompanyeInput
-    products?: ProductUncheckedCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyeInput
+    users?: UserUncheckedCreateNestedManyWithoutCompanyInput
+    products?: ProductUncheckedCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyCreateOrConnectWithoutOwnerInput = {
@@ -7432,7 +7399,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye: CompanyCreateNestedOneWithoutMovementsInput
+    company: CompanyCreateNestedOneWithoutMovementsInput
     product: ProductCreateNestedOneWithoutMovementsInput
   }
 
@@ -7441,7 +7408,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye_id: number
+    company_id: number
     product_id: number
   }
 
@@ -7468,19 +7435,17 @@ export namespace Prisma {
 
   export type CompanyUpdateWithoutUsersInput = {
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner?: UserUpdateOneWithoutCompanyOwnedNestedInput
-    products?: ProductUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUpdateManyWithoutCompanyeNestedInput
+    products?: ProductUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateWithoutUsersInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner_id?: NullableIntFieldUpdateOperationsInput | number | null
-    products?: ProductUncheckedUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUncheckedUpdateManyWithoutCompanyeNestedInput
+    products?: ProductUncheckedUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUpsertWithoutOwnerInput = {
@@ -7496,19 +7461,17 @@ export namespace Prisma {
 
   export type CompanyUpdateWithoutOwnerInput = {
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
-    users?: UserUpdateManyWithoutCompanyeNestedInput
-    products?: ProductUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUpdateManyWithoutCompanyeNestedInput
+    users?: UserUpdateManyWithoutCompanyNestedInput
+    products?: ProductUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateWithoutOwnerInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
-    users?: UserUncheckedUpdateManyWithoutCompanyeNestedInput
-    products?: ProductUncheckedUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUncheckedUpdateManyWithoutCompanyeNestedInput
+    users?: UserUncheckedUpdateManyWithoutCompanyNestedInput
+    products?: ProductUncheckedUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type StockMovementUpsertWithWhereUniqueWithoutUserInput = {
@@ -7535,7 +7498,7 @@ export namespace Prisma {
     type?: StringFilter<"StockMovement"> | string
     created_at?: DateTimeFilter<"StockMovement"> | Date | string
     quantity?: IntFilter<"StockMovement"> | number
-    companye_id?: IntFilter<"StockMovement"> | number
+    company_id?: IntFilter<"StockMovement"> | number
     product_id?: IntFilter<"StockMovement"> | number
     user_id?: IntFilter<"StockMovement"> | number
   }
@@ -7546,7 +7509,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye?: CompanyCreateNestedOneWithoutUsersInput
+    company?: CompanyCreateNestedOneWithoutUsersInput
     movements?: StockMovementCreateNestedManyWithoutUserInput
   }
 
@@ -7557,7 +7520,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye_id?: number | null
+    company_id?: number | null
     movements?: StockMovementUncheckedCreateNestedManyWithoutUserInput
   }
 
@@ -7566,7 +7529,7 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutCompanyOwnedInput, UserUncheckedCreateWithoutCompanyOwnedInput>
   }
 
-  export type UserCreateWithoutCompanyeInput = {
+  export type UserCreateWithoutCompanyInput = {
     name: string
     email: string
     password_hash: string
@@ -7576,7 +7539,7 @@ export namespace Prisma {
     movements?: StockMovementCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutCompanyeInput = {
+  export type UserUncheckedCreateWithoutCompanyInput = {
     id?: number
     name: string
     email: string
@@ -7587,24 +7550,24 @@ export namespace Prisma {
     movements?: StockMovementUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutCompanyeInput = {
+  export type UserCreateOrConnectWithoutCompanyInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutCompanyeInput, UserUncheckedCreateWithoutCompanyeInput>
+    create: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput>
   }
 
-  export type UserCreateManyCompanyeInputEnvelope = {
-    data: UserCreateManyCompanyeInput | UserCreateManyCompanyeInput[]
+  export type UserCreateManyCompanyInputEnvelope = {
+    data: UserCreateManyCompanyInput | UserCreateManyCompanyInput[]
     skipDuplicates?: boolean
   }
 
-  export type ProductCreateWithoutCompanyeInput = {
+  export type ProductCreateWithoutCompanyInput = {
     name: string
     measure_unit: string
     quantity: number
     movements?: StockMovementCreateNestedManyWithoutProductInput
   }
 
-  export type ProductUncheckedCreateWithoutCompanyeInput = {
+  export type ProductUncheckedCreateWithoutCompanyInput = {
     id?: number
     name: string
     measure_unit: string
@@ -7612,17 +7575,17 @@ export namespace Prisma {
     movements?: StockMovementUncheckedCreateNestedManyWithoutProductInput
   }
 
-  export type ProductCreateOrConnectWithoutCompanyeInput = {
+  export type ProductCreateOrConnectWithoutCompanyInput = {
     where: ProductWhereUniqueInput
-    create: XOR<ProductCreateWithoutCompanyeInput, ProductUncheckedCreateWithoutCompanyeInput>
+    create: XOR<ProductCreateWithoutCompanyInput, ProductUncheckedCreateWithoutCompanyInput>
   }
 
-  export type ProductCreateManyCompanyeInputEnvelope = {
-    data: ProductCreateManyCompanyeInput | ProductCreateManyCompanyeInput[]
+  export type ProductCreateManyCompanyInputEnvelope = {
+    data: ProductCreateManyCompanyInput | ProductCreateManyCompanyInput[]
     skipDuplicates?: boolean
   }
 
-  export type StockMovementCreateWithoutCompanyeInput = {
+  export type StockMovementCreateWithoutCompanyInput = {
     type: string
     created_at?: Date | string
     quantity: number
@@ -7630,7 +7593,7 @@ export namespace Prisma {
     user: UserCreateNestedOneWithoutMovementsInput
   }
 
-  export type StockMovementUncheckedCreateWithoutCompanyeInput = {
+  export type StockMovementUncheckedCreateWithoutCompanyInput = {
     id?: number
     type: string
     created_at?: Date | string
@@ -7639,13 +7602,13 @@ export namespace Prisma {
     user_id: number
   }
 
-  export type StockMovementCreateOrConnectWithoutCompanyeInput = {
+  export type StockMovementCreateOrConnectWithoutCompanyInput = {
     where: StockMovementWhereUniqueInput
-    create: XOR<StockMovementCreateWithoutCompanyeInput, StockMovementUncheckedCreateWithoutCompanyeInput>
+    create: XOR<StockMovementCreateWithoutCompanyInput, StockMovementUncheckedCreateWithoutCompanyInput>
   }
 
-  export type StockMovementCreateManyCompanyeInputEnvelope = {
-    data: StockMovementCreateManyCompanyeInput | StockMovementCreateManyCompanyeInput[]
+  export type StockMovementCreateManyCompanyInputEnvelope = {
+    data: StockMovementCreateManyCompanyInput | StockMovementCreateManyCompanyInput[]
     skipDuplicates?: boolean
   }
 
@@ -7666,7 +7629,7 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye?: CompanyUpdateOneWithoutUsersNestedInput
+    company?: CompanyUpdateOneWithoutUsersNestedInput
     movements?: StockMovementUpdateManyWithoutUserNestedInput
   }
 
@@ -7677,24 +7640,24 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye_id?: NullableIntFieldUpdateOperationsInput | number | null
+    company_id?: NullableIntFieldUpdateOperationsInput | number | null
     movements?: StockMovementUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUpsertWithWhereUniqueWithoutCompanyeInput = {
+  export type UserUpsertWithWhereUniqueWithoutCompanyInput = {
     where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutCompanyeInput, UserUncheckedUpdateWithoutCompanyeInput>
-    create: XOR<UserCreateWithoutCompanyeInput, UserUncheckedCreateWithoutCompanyeInput>
+    update: XOR<UserUpdateWithoutCompanyInput, UserUncheckedUpdateWithoutCompanyInput>
+    create: XOR<UserCreateWithoutCompanyInput, UserUncheckedCreateWithoutCompanyInput>
   }
 
-  export type UserUpdateWithWhereUniqueWithoutCompanyeInput = {
+  export type UserUpdateWithWhereUniqueWithoutCompanyInput = {
     where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutCompanyeInput, UserUncheckedUpdateWithoutCompanyeInput>
+    data: XOR<UserUpdateWithoutCompanyInput, UserUncheckedUpdateWithoutCompanyInput>
   }
 
-  export type UserUpdateManyWithWhereWithoutCompanyeInput = {
+  export type UserUpdateManyWithWhereWithoutCompanyInput = {
     where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutCompanyeInput>
+    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutCompanyInput>
   }
 
   export type UserScalarWhereInput = {
@@ -7707,23 +7670,23 @@ export namespace Prisma {
     password_hash?: StringFilter<"User"> | string
     role?: StringFilter<"User"> | string
     created_at?: DateTimeFilter<"User"> | Date | string
-    companye_id?: IntNullableFilter<"User"> | number | null
+    company_id?: IntNullableFilter<"User"> | number | null
   }
 
-  export type ProductUpsertWithWhereUniqueWithoutCompanyeInput = {
+  export type ProductUpsertWithWhereUniqueWithoutCompanyInput = {
     where: ProductWhereUniqueInput
-    update: XOR<ProductUpdateWithoutCompanyeInput, ProductUncheckedUpdateWithoutCompanyeInput>
-    create: XOR<ProductCreateWithoutCompanyeInput, ProductUncheckedCreateWithoutCompanyeInput>
+    update: XOR<ProductUpdateWithoutCompanyInput, ProductUncheckedUpdateWithoutCompanyInput>
+    create: XOR<ProductCreateWithoutCompanyInput, ProductUncheckedCreateWithoutCompanyInput>
   }
 
-  export type ProductUpdateWithWhereUniqueWithoutCompanyeInput = {
+  export type ProductUpdateWithWhereUniqueWithoutCompanyInput = {
     where: ProductWhereUniqueInput
-    data: XOR<ProductUpdateWithoutCompanyeInput, ProductUncheckedUpdateWithoutCompanyeInput>
+    data: XOR<ProductUpdateWithoutCompanyInput, ProductUncheckedUpdateWithoutCompanyInput>
   }
 
-  export type ProductUpdateManyWithWhereWithoutCompanyeInput = {
+  export type ProductUpdateManyWithWhereWithoutCompanyInput = {
     where: ProductScalarWhereInput
-    data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutCompanyeInput>
+    data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutCompanyInput>
   }
 
   export type ProductScalarWhereInput = {
@@ -7734,40 +7697,38 @@ export namespace Prisma {
     name?: StringFilter<"Product"> | string
     measure_unit?: StringFilter<"Product"> | string
     quantity?: IntFilter<"Product"> | number
-    companye_id?: IntFilter<"Product"> | number
+    company_id?: IntFilter<"Product"> | number
   }
 
-  export type StockMovementUpsertWithWhereUniqueWithoutCompanyeInput = {
+  export type StockMovementUpsertWithWhereUniqueWithoutCompanyInput = {
     where: StockMovementWhereUniqueInput
-    update: XOR<StockMovementUpdateWithoutCompanyeInput, StockMovementUncheckedUpdateWithoutCompanyeInput>
-    create: XOR<StockMovementCreateWithoutCompanyeInput, StockMovementUncheckedCreateWithoutCompanyeInput>
+    update: XOR<StockMovementUpdateWithoutCompanyInput, StockMovementUncheckedUpdateWithoutCompanyInput>
+    create: XOR<StockMovementCreateWithoutCompanyInput, StockMovementUncheckedCreateWithoutCompanyInput>
   }
 
-  export type StockMovementUpdateWithWhereUniqueWithoutCompanyeInput = {
+  export type StockMovementUpdateWithWhereUniqueWithoutCompanyInput = {
     where: StockMovementWhereUniqueInput
-    data: XOR<StockMovementUpdateWithoutCompanyeInput, StockMovementUncheckedUpdateWithoutCompanyeInput>
+    data: XOR<StockMovementUpdateWithoutCompanyInput, StockMovementUncheckedUpdateWithoutCompanyInput>
   }
 
-  export type StockMovementUpdateManyWithWhereWithoutCompanyeInput = {
+  export type StockMovementUpdateManyWithWhereWithoutCompanyInput = {
     where: StockMovementScalarWhereInput
-    data: XOR<StockMovementUpdateManyMutationInput, StockMovementUncheckedUpdateManyWithoutCompanyeInput>
+    data: XOR<StockMovementUpdateManyMutationInput, StockMovementUncheckedUpdateManyWithoutCompanyInput>
   }
 
   export type CompanyCreateWithoutProductsInput = {
     name: string
-    image_url: string
     owner?: UserCreateNestedOneWithoutCompanyOwnedInput
-    users?: UserCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementCreateNestedManyWithoutCompanyeInput
+    users?: UserCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateWithoutProductsInput = {
     id?: number
     name: string
-    image_url: string
     owner_id?: number | null
-    users?: UserUncheckedCreateNestedManyWithoutCompanyeInput
-    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyeInput
+    users?: UserUncheckedCreateNestedManyWithoutCompanyInput
+    movements?: StockMovementUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyCreateOrConnectWithoutProductsInput = {
@@ -7779,7 +7740,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye: CompanyCreateNestedOneWithoutMovementsInput
+    company: CompanyCreateNestedOneWithoutMovementsInput
     user: UserCreateNestedOneWithoutMovementsInput
   }
 
@@ -7788,7 +7749,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye_id: number
+    company_id: number
     user_id: number
   }
 
@@ -7815,19 +7776,17 @@ export namespace Prisma {
 
   export type CompanyUpdateWithoutProductsInput = {
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner?: UserUpdateOneWithoutCompanyOwnedNestedInput
-    users?: UserUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUpdateManyWithoutCompanyeNestedInput
+    users?: UserUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateWithoutProductsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner_id?: NullableIntFieldUpdateOperationsInput | number | null
-    users?: UserUncheckedUpdateManyWithoutCompanyeNestedInput
-    movements?: StockMovementUncheckedUpdateManyWithoutCompanyeNestedInput
+    users?: UserUncheckedUpdateManyWithoutCompanyNestedInput
+    movements?: StockMovementUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type StockMovementUpsertWithWhereUniqueWithoutProductInput = {
@@ -7848,19 +7807,17 @@ export namespace Prisma {
 
   export type CompanyCreateWithoutMovementsInput = {
     name: string
-    image_url: string
     owner?: UserCreateNestedOneWithoutCompanyOwnedInput
-    users?: UserCreateNestedManyWithoutCompanyeInput
-    products?: ProductCreateNestedManyWithoutCompanyeInput
+    users?: UserCreateNestedManyWithoutCompanyInput
+    products?: ProductCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyUncheckedCreateWithoutMovementsInput = {
     id?: number
     name: string
-    image_url: string
     owner_id?: number | null
-    users?: UserUncheckedCreateNestedManyWithoutCompanyeInput
-    products?: ProductUncheckedCreateNestedManyWithoutCompanyeInput
+    users?: UserUncheckedCreateNestedManyWithoutCompanyInput
+    products?: ProductUncheckedCreateNestedManyWithoutCompanyInput
   }
 
   export type CompanyCreateOrConnectWithoutMovementsInput = {
@@ -7872,7 +7829,7 @@ export namespace Prisma {
     name: string
     measure_unit: string
     quantity: number
-    companye: CompanyCreateNestedOneWithoutProductsInput
+    company: CompanyCreateNestedOneWithoutProductsInput
   }
 
   export type ProductUncheckedCreateWithoutMovementsInput = {
@@ -7880,7 +7837,7 @@ export namespace Prisma {
     name: string
     measure_unit: string
     quantity: number
-    companye_id: number
+    company_id: number
   }
 
   export type ProductCreateOrConnectWithoutMovementsInput = {
@@ -7894,7 +7851,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye?: CompanyCreateNestedOneWithoutUsersInput
+    company?: CompanyCreateNestedOneWithoutUsersInput
     companyOwned?: CompanyCreateNestedOneWithoutOwnerInput
   }
 
@@ -7905,7 +7862,7 @@ export namespace Prisma {
     password_hash: string
     role: string
     created_at?: Date | string
-    companye_id?: number | null
+    company_id?: number | null
     companyOwned?: CompanyUncheckedCreateNestedOneWithoutOwnerInput
   }
 
@@ -7927,19 +7884,17 @@ export namespace Prisma {
 
   export type CompanyUpdateWithoutMovementsInput = {
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner?: UserUpdateOneWithoutCompanyOwnedNestedInput
-    users?: UserUpdateManyWithoutCompanyeNestedInput
-    products?: ProductUpdateManyWithoutCompanyeNestedInput
+    users?: UserUpdateManyWithoutCompanyNestedInput
+    products?: ProductUpdateManyWithoutCompanyNestedInput
   }
 
   export type CompanyUncheckedUpdateWithoutMovementsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    image_url?: StringFieldUpdateOperationsInput | string
     owner_id?: NullableIntFieldUpdateOperationsInput | number | null
-    users?: UserUncheckedUpdateManyWithoutCompanyeNestedInput
-    products?: ProductUncheckedUpdateManyWithoutCompanyeNestedInput
+    users?: UserUncheckedUpdateManyWithoutCompanyNestedInput
+    products?: ProductUncheckedUpdateManyWithoutCompanyNestedInput
   }
 
   export type ProductUpsertWithoutMovementsInput = {
@@ -7957,7 +7912,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye?: CompanyUpdateOneRequiredWithoutProductsNestedInput
+    company?: CompanyUpdateOneRequiredWithoutProductsNestedInput
   }
 
   export type ProductUncheckedUpdateWithoutMovementsInput = {
@@ -7965,7 +7920,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
   }
 
   export type UserUpsertWithoutMovementsInput = {
@@ -7985,7 +7940,7 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye?: CompanyUpdateOneWithoutUsersNestedInput
+    company?: CompanyUpdateOneWithoutUsersNestedInput
     companyOwned?: CompanyUpdateOneWithoutOwnerNestedInput
   }
 
@@ -7996,7 +7951,7 @@ export namespace Prisma {
     password_hash?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    companye_id?: NullableIntFieldUpdateOperationsInput | number | null
+    company_id?: NullableIntFieldUpdateOperationsInput | number | null
     companyOwned?: CompanyUncheckedUpdateOneWithoutOwnerNestedInput
   }
 
@@ -8005,7 +7960,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye_id: number
+    company_id: number
     product_id: number
   }
 
@@ -8013,7 +7968,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye?: CompanyUpdateOneRequiredWithoutMovementsNestedInput
+    company?: CompanyUpdateOneRequiredWithoutMovementsNestedInput
     product?: ProductUpdateOneRequiredWithoutMovementsNestedInput
   }
 
@@ -8022,7 +7977,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     product_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -8031,11 +7986,11 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     product_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type UserCreateManyCompanyeInput = {
+  export type UserCreateManyCompanyInput = {
     id?: number
     name: string
     email: string
@@ -8044,14 +7999,14 @@ export namespace Prisma {
     created_at?: Date | string
   }
 
-  export type ProductCreateManyCompanyeInput = {
+  export type ProductCreateManyCompanyInput = {
     id?: number
     name: string
     measure_unit: string
     quantity: number
   }
 
-  export type StockMovementCreateManyCompanyeInput = {
+  export type StockMovementCreateManyCompanyInput = {
     id?: number
     type: string
     created_at?: Date | string
@@ -8060,7 +8015,7 @@ export namespace Prisma {
     user_id: number
   }
 
-  export type UserUpdateWithoutCompanyeInput = {
+  export type UserUpdateWithoutCompanyInput = {
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
@@ -8070,7 +8025,7 @@ export namespace Prisma {
     movements?: StockMovementUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutCompanyeInput = {
+  export type UserUncheckedUpdateWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -8081,7 +8036,7 @@ export namespace Prisma {
     movements?: StockMovementUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateManyWithoutCompanyeInput = {
+  export type UserUncheckedUpdateManyWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -8090,14 +8045,14 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type ProductUpdateWithoutCompanyeInput = {
+  export type ProductUpdateWithoutCompanyInput = {
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     movements?: StockMovementUpdateManyWithoutProductNestedInput
   }
 
-  export type ProductUncheckedUpdateWithoutCompanyeInput = {
+  export type ProductUncheckedUpdateWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
@@ -8105,14 +8060,14 @@ export namespace Prisma {
     movements?: StockMovementUncheckedUpdateManyWithoutProductNestedInput
   }
 
-  export type ProductUncheckedUpdateManyWithoutCompanyeInput = {
+  export type ProductUncheckedUpdateManyWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     measure_unit?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
   }
 
-  export type StockMovementUpdateWithoutCompanyeInput = {
+  export type StockMovementUpdateWithoutCompanyInput = {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
@@ -8120,7 +8075,7 @@ export namespace Prisma {
     user?: UserUpdateOneRequiredWithoutMovementsNestedInput
   }
 
-  export type StockMovementUncheckedUpdateWithoutCompanyeInput = {
+  export type StockMovementUncheckedUpdateWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8129,7 +8084,7 @@ export namespace Prisma {
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
-  export type StockMovementUncheckedUpdateManyWithoutCompanyeInput = {
+  export type StockMovementUncheckedUpdateManyWithoutCompanyInput = {
     id?: IntFieldUpdateOperationsInput | number
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8143,7 +8098,7 @@ export namespace Prisma {
     type: string
     created_at?: Date | string
     quantity: number
-    companye_id: number
+    company_id: number
     user_id: number
   }
 
@@ -8151,7 +8106,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye?: CompanyUpdateOneRequiredWithoutMovementsNestedInput
+    company?: CompanyUpdateOneRequiredWithoutMovementsNestedInput
     user?: UserUpdateOneRequiredWithoutMovementsNestedInput
   }
 
@@ -8160,7 +8115,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
 
@@ -8169,7 +8124,7 @@ export namespace Prisma {
     type?: StringFieldUpdateOperationsInput | string
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     quantity?: IntFieldUpdateOperationsInput | number
-    companye_id?: IntFieldUpdateOperationsInput | number
+    company_id?: IntFieldUpdateOperationsInput | number
     user_id?: IntFieldUpdateOperationsInput | number
   }
 

@@ -7,11 +7,14 @@ import { BcryptService } from 'src/auth/hash/bcrypt.service';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import jwtConfig from './config/jwt.config';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from './jwt/jwt.strategy';
 
 @Module({
   imports: [
     ConfigModule.forFeature(jwtConfig),
     JwtModule.registerAsync(jwtConfig.asProvider()),
+    PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
   providers: [
     AuthService,
@@ -20,8 +23,10 @@ import jwtConfig from './config/jwt.config';
       provide: HashingServiceProtocol,
       useClass: BcryptService,
     },
+
+    JwtStrategy,
   ],
   controllers: [AuthController],
-  exports: [JwtModule, AuthService, HashingServiceProtocol],
+  exports: [JwtModule, AuthService, HashingServiceProtocol, PassportModule],
 })
 export class AuthModule {}

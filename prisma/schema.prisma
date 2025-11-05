@@ -23,8 +23,8 @@ model User{
   role String
   created_at DateTime @default(now())
 
-  companye_id Int?
-  companye Company? @relation(fields: [companye_id], references: [id])
+  company_id Int?
+  company Company? @relation(fields: [company_id], references: [id])
 
   companyOwned Company? @relation("OwnerOfCompany")
   
@@ -33,11 +33,9 @@ model User{
 }
 
 model Company {
-  @@map("companyes")
+  @@map("companys")
   id Int @id @default(autoincrement())
   name String
-  image_url String
-  
   owner_id Int? @unique
   owner User? @relation( "OwnerOfCompany" ,fields: [owner_id], references: [id])
 
@@ -54,8 +52,8 @@ model Product{
   measure_unit String
   quantity Int
 
-  companye_id Int
-  companye Company @relation(fields: [companye_id], references: [id])
+  company_id Int
+  company Company @relation(fields: [company_id], references: [id])
 
   movements StockMovement[]
 }
@@ -67,8 +65,8 @@ model StockMovement{
   created_at DateTime @default(now())
   quantity Int
 
-  companye_id Int
-  companye Company @relation(fields: [companye_id], references: [id])
+  company_id Int
+  company Company @relation(fields: [company_id], references: [id])
 
   product_id Int 
   product  Product @relation(fields: [product_id], references: [id])
