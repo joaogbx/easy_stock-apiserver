@@ -7,7 +7,11 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CompanyService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async createCompany(createCompanyDto: CreateCompanyDto): Promise<Company> {
+  async createCompany(
+    createCompanyDto: CreateCompanyDto,
+    userId,
+  ): Promise<Company> {
+    console.log(userId);
     const hasCompany = await this.prisma.company.findFirst({
       where: {
         name: createCompanyDto.name,
@@ -20,6 +24,7 @@ export class CompanyService {
       const company = await this.prisma.company.create({
         data: {
           ...createCompanyDto,
+          owner_id: userId,
         },
       });
 

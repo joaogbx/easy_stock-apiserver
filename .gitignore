@@ -3,6 +3,10 @@
 /node_modules
 /build
 
+#readme
+README.md
+
+
 # Logs
 logs
 *.log

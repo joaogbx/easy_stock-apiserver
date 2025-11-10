@@ -25,6 +25,7 @@ export class ResponseInterceptor implements NestInterceptor {
         data: data || {},
       })),
       catchError((error) => {
+        console.log(error);
         const status =
           error instanceof HttpException
             ? error.getStatus()
@@ -35,13 +36,14 @@ export class ResponseInterceptor implements NestInterceptor {
             ? error.getResponse()
             : 'Erro interno do servidor';
 
-        // 🔁 mantém o mesmo formato de resposta
-        return throwError(() => ({
+        const errorPayload = {
           success: false,
           statusCode: status,
           timestamp: new Date().toISOString(),
           error: message,
-        }));
+        };
+
+        return throwError(() => new HttpException(errorPayload, status));
       }),
     );
   }
