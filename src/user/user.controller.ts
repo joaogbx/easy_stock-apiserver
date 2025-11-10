@@ -22,6 +22,8 @@ export class UserController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateUserDto: UpdateUserDto,
   ) {
+    console.log(updateUserDto);
+
     return this.userService.updateUser(id, updateUserDto);
   }
 

@@ -11,6 +11,7 @@ export class CompanyService {
     createCompanyDto: CreateCompanyDto,
     userId,
   ): Promise<Company> {
+    console.log(userId);
     const hasCompany = await this.prisma.company.findFirst({
       where: {
         name: createCompanyDto.name,

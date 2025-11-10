@@ -15,6 +15,8 @@ export class CompanyController {
     @Body() createCompany: CreateCompanyDto,
     @UserIdParam() userId,
   ) {
+    console.log('user', userId);
+    console.log('paylaod', createCompany);
     return this.companyService.createCompany(createCompany, userId);
   }
 }
