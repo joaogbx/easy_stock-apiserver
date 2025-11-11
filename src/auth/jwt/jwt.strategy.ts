@@ -17,6 +17,14 @@ export interface JwtPayload {
   sub: number;
   email: string;
   role: string;
+  company_id: number;
+}
+export interface PublicUser {
+  id: number;
+  name: string;
+  email: string;
+  role: string;
+  company_id: number | null;
 }
 
 @Injectable()
@@ -35,11 +43,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   // 4. Método de Validação: Chamado após o token ser decodificado e verificado
-  async validate(payload: JwtPayload): Promise<User> {
+  async validate(payload: JwtPayload): Promise<PublicUser> {
     console.log(payload);
     const user = await this.prismaService.user.findUnique({
-      where: {
-        id: payload.sub,
+      where: { id: payload.sub },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        company_id: true,
       },
     });
 

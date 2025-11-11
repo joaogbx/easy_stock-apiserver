@@ -12,8 +12,10 @@ import { CreateUserDto } from './dto/create_user.dto';
 import { UserService } from './user.service';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { AuthTokenGuard } from 'src/commons/guards/auth_token.guard';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('user')
+@UseGuards(AuthGuard('jwt'))
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -28,7 +30,6 @@ export class UserController {
   }
 
   @Post()
-  @UseGuards(AuthTokenGuard)
   async registerUserByAdmin(@Body() createUserDto: CreateUserDto) {
     return this.userService.createUser(createUserDto);
   }

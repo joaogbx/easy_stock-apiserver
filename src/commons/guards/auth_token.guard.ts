@@ -26,10 +26,10 @@ export class AuthTokenGuard implements CanActivate {
       .split(' ')
       .slice(1)
       .join(' ');
-    console.log('token enviado', token);
 
     if (!token) throw new UnauthorizedException('Token não encontrado');
     try {
+      console.log('JWT CONFIG', this.jwtConfiguration);
       const payload = await this.jwtService.verifyAsync(
         token,
         this.jwtConfiguration,
@@ -39,6 +39,7 @@ export class AuthTokenGuard implements CanActivate {
 
       return payload;
     } catch (error) {
+      console.log(error);
       throw new UnauthorizedException('Token inválido');
     }
   }
