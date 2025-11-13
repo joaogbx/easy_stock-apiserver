@@ -13,5 +13,6 @@ import { AuthModule } from 'src/auth/auth.module';
   providers: [ProductService, PrismaService, JwtStrategy],
   controllers: [ProductController],
   imports: [AuthModule],
+  exports: [ProductService],
 })
 export class ProductModule {}

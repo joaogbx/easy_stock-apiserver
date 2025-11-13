@@ -14,6 +14,18 @@ import { UpdateProductDto } from './dto/update_product.dto';
 export class ProductService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async getProductById(productId: number) {
+    const product = await this.prisma.product.findFirst({
+      where: {
+        id: productId,
+      },
+    });
+
+    if (!product) throw new NotFoundException('Produto inexistente');
+
+    return product;
+  }
+
   async getAllProducts(companyId: number) {
     const products = await this.prisma.product.findMany({
       where: {
