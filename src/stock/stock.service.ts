@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  HttpException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
@@ -61,5 +62,26 @@ export class StockService {
     );
 
     return transactionResult;
+  }
+
+  async getAllMovements(companyId: number, userId?: number) {
+    const whereCondition: any = { company_id: companyId };
+
+    if (userId) whereCondition.user_id = userId;
+
+    const movements = this.prisma.stockMovement.findMany({
+      where: whereCondition,
+      include: {
+        product: true,
+      },
+      orderBy: {
+        created_at: 'desc',
+      },
+    });
+
+    if (!movements)
+      throw new NotFoundException('Sem movimentações dessa companhia');
+
+    return movements;
   }
 }
