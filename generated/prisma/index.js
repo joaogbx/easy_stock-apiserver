@@ -160,7 +160,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\personal_repositories\\easy_stock-apiserver\\generated\\prisma",
+      "value": "C:\\development\\easystock-project\\easy_stock\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -174,7 +174,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\personal_repositories\\easy_stock-apiserver\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\development\\easystock-project\\easy_stock\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -188,6 +188,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {

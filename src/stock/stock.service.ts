@@ -22,6 +22,7 @@ export class StockService {
     registerMovementDto: RegisterMovementDto,
     userId: number,
   ) {
+    console.log('PRODUUUUUUUUUUUTO', productId);
     const product = await this.productService.getProductById(productId);
 
     const { type, quantity } = registerMovementDto;
