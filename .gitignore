@@ -58,3 +58,47 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+
+# ----------------------------------------
+# ARQUIVOS GERADOS PELO PRISMA (ESSENCIAL)
+# ----------------------------------------
+
+# Ignora todos os arquivos dentro da pasta gerada pelo cliente Prisma
+# Geralmente a pasta default fica em node_modules/.prisma/client/
+# Mas para segurança, ignoramos tudo que é gerado dentro de node_modules
+# e a pasta de tipos 'prisma/generated' se ela existir.
+
+# Se o seu schema.prisma gerar os tipos na pasta padrão:
+# O cliente Prisma será ignorado pela regra node_modules/
+
+# ----------------------------------------
+# DEPENDÊNCIAS DO NODE.JS (OBRIGATÓRIO)
+# ----------------------------------------
+node_modules/
+dist/          # Pasta de saída da compilação do TypeScript/NestJS
+
+# ----------------------------------------
+# ARQUIVOS DE CACHE E CONFIGURAÇÃO
+# ----------------------------------------
+.env           # Arquivos de variáveis de ambiente (nunca devem ser commitados!)
+.vscode/       # Configurações pessoais do VSCode
+.DS_Store      # Arquivos de sistema do macOS
+
+# ----------------------------------------
+# ARQUIVOS DE LOCK (Recomendado na maioria dos projetos)
+# ----------------------------------------
+# Se estiver usando npm:
+# package-lock.json  # <-- Descomente esta linha se você NÃO usa locks e apenas usa o package.json
+                     # No entanto, em NestJS/Node, é recomendado manter o lock para versões exatas.
+                     # Vou deixar comentado, pois geralmente ele DEVE ser rastreado.
+
+# Se estiver usando yarn:
+# yarn.lock
+
+# ----------------------------------------
+# ARQUIVOS DE CACHE DIVERSOS
+# ----------------------------------------
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -12,6 +12,7 @@ import { RegisterMovementDto } from './dto/register-movement.dto';
 import { StockService } from './stock.service';
 import { AuthGuard } from '@nestjs/passport';
 import { UserIdParam } from 'src/commons/decorators/user_id.decorator';
+import { UserRoleDecorator } from 'src/commons/decorators/user_role.decorator';
 
 @Controller('stock/movements')
 @UseGuards(AuthGuard('jwt'))
@@ -37,14 +38,15 @@ export class StockController {
   getAllMovements(
     @CompanyIdParam() companyId: number,
     @UserIdParam() userId: number,
-
-    @Query('mine') mine?: string,
+    @UserRoleDecorator() userRole: string,
+    @Query('mine')
+    mine?: string,
   ) {
-    const filterByUser = mine === 'true';
+    const filterByUser = mine === 'true' || userRole === 'USER';
 
     return this.stockService.getAllMovements(
       companyId,
-      filterByUser ? userId : undefined, // Passa o userId APENAS se o filtro estiver ativado
+      filterByUser ? userId : undefined,
     );
   }
 }
