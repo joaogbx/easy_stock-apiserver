@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int             @id @default(autoincrement())
+  name          String
+  email         String
+  password_hash String
+  role          String
+  created_at    DateTime        @default(now())
+  company_id    Int?
+  companyOwned  Company?        @relation("OwnerOfCompany")
+  movements     StockMovement[]
+  company       Company?        @relation(fields: [company_id], references: [id])
+
+  @@map("users")
+}
+
+model Company {
+  id        Int             @id @default(autoincrement())
+  name      String
+  owner_id  Int?            @unique
+  owner     User?           @relation("OwnerOfCompany", fields: [owner_id], references: [id])
+  products  Product[]
+  movements StockMovement[]
+  users     User[]
+
+  @@map("companys")
+}
+
+model Product {
+  id           Int             @id @default(autoincrement())
+  name         String
+  measure_unit String
+  quantity     Int
+  company_id   Int
+  company      Company         @relation(fields: [company_id], references: [id])
+  movements    StockMovement[]
+
+  @@map("products")
+}
+
+model StockMovement {
+  id         Int      @id @default(autoincrement())
+  type       String
+  created_at DateTime @default(now())
+  quantity   Int
+  product_id Int
+  user_id    Int
+  company_id Int
+  company    Company  @relation(fields: [company_id], references: [id])
+  product    Product  @relation(fields: [product_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id])
+
+  @@map("stock_movements")
+}
