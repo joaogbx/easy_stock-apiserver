@@ -1,4 +1,10 @@
-import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { SignInDto } from './dto/signin-user-dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HashingServiceProtocol } from 'src/auth/hash/hashing.service';
@@ -41,6 +47,43 @@ export class AuthService {
         'Login ou senha incorretos',
         HttpStatus.UNAUTHORIZED,
       );
+    }
+
+    const token = await this.jwtService.signAsync(
+      {
+        sub: user.id,
+        email: user.email,
+        role: user.role,
+        company_id: user.company_id,
+      },
+      {
+        audience: this.jwtConfiguration.audience,
+        secret: this.jwtConfiguration.secret,
+        issuer: this.jwtConfiguration.issuer,
+        expiresIn: '30d',
+      },
+    );
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      created_at: user.created_at,
+      role: user.role,
+      company_id: user.company_id,
+      token: token,
+    };
+  }
+
+  async me(userId: number) {
+    const user = await this.prisma.user.findFirst({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!user) {
+      throw new HttpException('Usuário não encontrado', HttpStatus.BAD_REQUEST);
     }
 
     const token = await this.jwtService.signAsync(

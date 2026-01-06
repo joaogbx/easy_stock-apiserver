@@ -47,7 +47,6 @@ export class UserService {
       name: updateUserDto.name ?? user.name,
       email: updateUserDto.email ?? user.email,
       role: updateUserDto.role ?? user.role,
-      company_id: updateUserDto.company_id ?? user.company_id,
     };
 
     if (updateUserDto.password) {

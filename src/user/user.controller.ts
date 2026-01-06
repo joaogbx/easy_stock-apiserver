@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Param,
   ParseIntPipe,
   Patch,
@@ -27,6 +28,11 @@ export class UserController {
     console.log(updateUserDto);
 
     return this.userService.updateUser(id, updateUserDto);
+  }
+
+  @Get()
+  async getUser() {
+    return 'this.userService.findUserById(id);';
   }
 
   @Post()
