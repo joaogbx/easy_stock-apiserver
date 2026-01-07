@@ -113,15 +113,15 @@ export class AuthService {
   }
 
   async register(createUserDto: CreateUserDto) {
-    const user = await this.prisma.user.findFirst({
-      where: {
-        email: createUserDto.email,
-      },
-    });
-
-    if (user?.id)
-      throw new HttpException('Usuário já existe', HttpStatus.BAD_REQUEST);
-
+    // const user = await this.prisma.user.findFirst({
+    //   where: {
+    //     email: createUserDto.email,
+    //   },
+    // });
+    //
+    // if (user?.id)
+    //   throw new HttpException('Usuário já existe', HttpStatus.BAD_REQUEST);
+    //
     const passwordHash = await this.hash.hash(createUserDto.password);
 
     const newUser = await this.prisma.user.create({
