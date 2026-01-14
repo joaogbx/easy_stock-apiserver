@@ -1,4 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create_user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HashingServiceProtocol } from '../auth/hash/hashing.service';
@@ -13,7 +19,7 @@ export class UserService {
     private readonly hashing: HashingServiceProtocol,
   ) {}
 
-  async createUser(createUserDto: CreateUserDto) {
+  async createUser(createUserDto: CreateUserDto, companyId: number) {
     const user = await this.prisma.user.findFirst({
       where: {
         email: createUserDto.email,
@@ -31,6 +37,7 @@ export class UserService {
         name: createUserDto.name,
         role: createUserDto.role,
         password_hash: passwordHash,
+        company_id: companyId,
       },
       select: USER_SELECT_FIELDS,
     });
@@ -79,6 +86,40 @@ export class UserService {
       }
 
       throw error;
+    }
+  }
+  async findAllByCompany(companyId: number) {
+    if (!companyId) {
+      throw new HttpException(
+        'ID da companhia é obrigatório',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+
+    try {
+      const users = await this.prisma.user.findMany({
+        where: {
+          company_id: companyId,
+        },
+        select: USER_SELECT_FIELDS,
+        orderBy: {
+          name: 'asc',
+        },
+      });
+
+      return users;
+    } catch (error) {
+      if (error.code === 'P2025') {
+        throw new NotFoundException(
+          `Companhia com ID ${companyId} não encontrada.`,
+        );
+      }
+
+      // 3. Tratamento de erro de conexão ou erros inesperados
+      console.error('Erro ao buscar usuários:', error);
+      throw new InternalServerErrorException(
+        'Ocorreu um erro interno ao buscar os usuários da companhia.',
+      );
     }
   }
 }

@@ -14,6 +14,7 @@ import { UserService } from './user.service';
 import { UpdateUserDto } from './dto/update_user.dto';
 import { AuthTokenGuard } from 'src/commons/guards/auth_token.guard';
 import { AuthGuard } from '@nestjs/passport';
+import { CompanyIdParam } from 'src/commons/decorators/company_id.decorator';
 
 @Controller('user')
 @UseGuards(AuthGuard('jwt'))
@@ -31,12 +32,15 @@ export class UserController {
   }
 
   @Get()
-  async getUser() {
-    return 'this.userService.findUserById(id);';
+  async getUsers(@CompanyIdParam() companyId) {
+    return this.userService.findAllByCompany(companyId);
   }
 
   @Post()
-  async registerUserByAdmin(@Body() createUserDto: CreateUserDto) {
-    return this.userService.createUser(createUserDto);
+  async registerUserByAdmin(
+    @Body() createUserDto: CreateUserDto,
+    @CompanyIdParam() companyId,
+  ) {
+    return this.userService.createUser(createUserDto, companyId);
   }
 }

@@ -10,7 +10,6 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
   @Post()
   async sign(@Body() signInDto: SignInDto) {
-    console.log('caiu no auth');
     return this.authService.autenticate(signInDto);
   }
 

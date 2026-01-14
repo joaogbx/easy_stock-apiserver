@@ -77,8 +77,6 @@ export class StockService {
       company_id: companyId,
     };
 
-    console.log(filters);
-
     if (userId) {
       whereConditions.user_id = userId;
     }
@@ -94,6 +92,8 @@ export class StockService {
         whereConditions.created_at.lte = filters.endDate;
       }
     }
+
+    console.log(whereConditions);
 
     const movements = await this.prisma.stockMovement.findMany({
       where: whereConditions,

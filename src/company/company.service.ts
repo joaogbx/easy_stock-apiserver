@@ -39,6 +39,9 @@ export class CompanyService {
         const user = await tx.user.update({
           where: { id: userId },
           data: { company_id: company.id },
+          include: {
+            company: true,
+          },
         });
 
         return {

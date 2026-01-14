@@ -33,6 +33,9 @@ export class AuthService {
       },
     });
 
+    //if (!user?.company_id)
+    //  throw new HttpException('Usuário sem companhia', HttpStatus.FORBIDDEN);
+    //
     if (!user) {
       throw new HttpException('Usuário não encontrado', HttpStatus.BAD_REQUEST);
     }
@@ -80,6 +83,9 @@ export class AuthService {
       where: {
         id: userId,
       },
+      include: {
+        company: true,
+      },
     });
 
     if (!user) {
@@ -109,6 +115,7 @@ export class AuthService {
       role: user.role,
       company_id: user.company_id,
       token: token,
+      company: user.company,
     };
   }
 
