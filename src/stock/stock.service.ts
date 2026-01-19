@@ -54,7 +54,6 @@ export class StockService {
             product: { connect: { id: productId } },
             user: { connect: { id: userId } },
             ...registerMovementDto,
-            ...registerMovementDto, // type e quantity
           },
           include: {
             product: true,
@@ -93,8 +92,6 @@ export class StockService {
       }
     }
 
-    console.log(whereConditions);
-
     const movements = await this.prisma.stockMovement.findMany({
       where: whereConditions,
       include: {
@@ -105,14 +102,6 @@ export class StockService {
       },
     });
 
-    //if (movements.length === 0) {
-    //  const message = userId
-    //    ? 'Sem movimentações encontradas para este usuário.'
-    //    : 'Sem movimentações encontradas para esta companhia.';
-
-    //  throw new NotFoundException(message);
-    //}
-    console.log(movements);
     return movements;
   }
 }

@@ -26,16 +26,13 @@ export class AuthService {
     private readonly jwtConfiguration: ConfigType<typeof jwtConfigType>,
   ) {}
 
-  async autenticate(signInDto: SignInDto) {
+  async authenticate(signInDto: SignInDto) {
     const user = await this.prisma.user.findFirst({
       where: {
         email: signInDto.email,
       },
     });
 
-    //if (!user?.company_id)
-    //  throw new HttpException('Usuário sem companhia', HttpStatus.FORBIDDEN);
-    //
     if (!user) {
       throw new HttpException('Usuário não encontrado', HttpStatus.BAD_REQUEST);
     }
@@ -120,15 +117,6 @@ export class AuthService {
   }
 
   async register(createUserDto: CreateUserDto) {
-    // const user = await this.prisma.user.findFirst({
-    //   where: {
-    //     email: createUserDto.email,
-    //   },
-    // });
-    //
-    // if (user?.id)
-    //   throw new HttpException('Usuário já existe', HttpStatus.BAD_REQUEST);
-    //
     const passwordHash = await this.hash.hash(createUserDto.password);
 
     const newUser = await this.prisma.user.create({

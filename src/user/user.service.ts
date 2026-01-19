@@ -115,8 +115,7 @@ export class UserService {
         );
       }
 
-      // 3. Tratamento de erro de conexão ou erros inesperados
-      console.error('Erro ao buscar usuários:', error);
+      // Tratamento de erro de conexão ou erros inesperados
       throw new InternalServerErrorException(
         'Ocorreu um erro interno ao buscar os usuários da companhia.',
       );

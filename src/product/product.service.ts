@@ -6,9 +6,6 @@ import {
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateProductDto } from './dto/create_product.dto';
 import { UpdateProductDto } from './dto/update_product.dto';
-// Você pode precisar importar as classes de erro do Prisma se
-// o seu Exception Filter não estiver configurado globalmente.
-// Exemplo: import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class ProductService {
