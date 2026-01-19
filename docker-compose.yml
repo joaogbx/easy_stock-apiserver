@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: easy-stock-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: easy_stock
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - easy-stock-network
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    container_name: easy-stock-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    networks:
+      - easy-stock-network
+
+  # Easy Stock API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: easy-stock-api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/easy_stock?schema=public"
+      JWT_SECRET: "your-super-secret-jwt-key-here"
+      JWT_TOKEN_AUDIENCE: "http://localhost:3000"
+      JWT_TOKEN_ISSUER: "http://localhost:3000"
+      JWT_TTL: "30d"
+      NODE_ENV: "production"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - easy-stock-network
+    volumes:
+      - ./logs:/app/logs
+
+volumes:
+  postgres_data:
+
+networks:
+  easy-stock-network:
+    driver: bridge
